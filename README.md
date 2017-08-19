@@ -1,4 +1,4 @@
-# Welcome to **JMU Comics Course** test page
+# Header 1 Welcome to **JMU Comics Course** test page
 
 
 Whenever you commit to this repository, GitHub Pages will run Jekyll to rebuild the pages in your site, from the content in your Markdown files.
