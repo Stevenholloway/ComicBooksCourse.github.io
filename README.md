@@ -1,1 +1,1 @@
-Test site for JMU comics course
+Test site for JMU comics courses
