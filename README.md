@@ -12,7 +12,7 @@ Syntax highlighted code block
 # Header 1
 ## Header 2
 ### Header 3
-## Watson Personality Insights Course Guide: [https://github.com/Stevenholloway/Stevenholloway.github.io/Watson_PersonailtyInsights.pdf]
+## [Watson Personality Insights Course Guide:] (https://github.com/Stevenholloway/Stevenholloway.github.io/Watson_PersonailtyInsights.pdf)
 - Bulleted
 - List
 
