@@ -6,15 +6,15 @@
 
 ## ComicLife Course Guides
 ### [Google Cloud Vision API Course Guide](https://stevenholloway.github.io/ComicBooksCourse.github.io/Google_Cloud_Vision_API.pdf)
-### [Hypothes.is Course Guide]
-### [Image Classification Course Guide]
-### [Pixlr Editor Course Guide]
-### [Reverse Image Lookup Course Guide]
-### [Spreadsheet Madness for TEI-CBML Course Guide]
-### [Taporware Voyant IBM Watson NLU Course Guide]
-### [TEI-CBML Analysis Course Guide]
-### [TEI-CBML Scripting Course Guide]
-### [Watson Personality Insights Course Guide]
+### [Hypothes.is Course Guide](https://stevenholloway.github.io/ComicBooksCourse.github.io/hypothesis.pdf)
+### [Image Classification Course Guide](https://stevenholloway.github.io/ComicBooksCourse.github.io/image_classification.pdf)
+### [Pixlr Editor Course Guide](https://stevenholloway.github.io/ComicBooksCourse.github.io/pixlr_editor.pdf)
+### [Reverse Image Lookup Course Guide](https://stevenholloway.github.io/ComicBooksCourse.github.io/reverse_lookup.pdf)
+### [Spreadsheet Madness for TEI-CBML Course Guide](https://stevenholloway.github.io/ComicBooksCourse.github.io/spreadsheet-madness.pdf)
+### [Taporware Voyant IBM Watson NLU Course Guide](https://stevenholloway.github.io/ComicBooksCourse.github.io/taporware_voyant_NLU.pdf)
+### [TEI-CBML Analysis Course Guide](https://stevenholloway.github.io/ComicBooksCourse.github.io/TEI_CBML_Analysis.pdf)
+### [TEI-CBML Scripting Course Guide](https://stevenholloway.github.io/ComicBooksCourse.github.io/tei_CBML_Scripting.pdf)
+### [Watson Personality Insights Course Guide](https://stevenholloway.github.io/ComicBooksCourse.github.io/Watson_PersonalityInsights.pdf)
 
 ## Speech Extracts for Machine Analysis
 ### [Batman in Batman The Dark Knight Returns]
@@ -28,4 +28,4 @@
 
 ## [Phantom Lady #17 in extended TEI-CBML markup]
 ## XQuery scripts for TEI-CBML analysis
-## [Google Cloud Vision API Course Guide](https://stevenholloway.github.io/ComicBooksCourse.github.io/Google_Cloud_Vision_API.pdf)
+
