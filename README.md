@@ -1,10 +1,11 @@
 # Welcome to the James Madison University _Comic Books, Analysis, and Digital Scholarship_ Website
 
 ### In Fall 2018, Brian Flota and Steven W. Holloway co-taught an Honors 300 course using comic books and graphic novels.
-<p></p>
+<br>
+<br>
 ## [Syllabus](https://stevenholloway.github.io/ComicBooksCourse.github.io/Syllabus_HON300_0003.pdf) and [Final Project Requirements](https://stevenholloway.github.io/ComicBooksCourse.github.io/REVISED_Final_Project_Requirements.pdf)
-
-<p></p>
+<br>
+<br>
 ## _ComicLife_ Course Guides
 ### [Google Cloud Vision API Course Guide](https://stevenholloway.github.io/ComicBooksCourse.github.io/Google_Cloud_Vision_API.pdf)
 ### [Hypothes.is Course Guide](https://stevenholloway.github.io/ComicBooksCourse.github.io/hypothesis.pdf)
@@ -16,8 +17,8 @@
 ### [TEI-CBML Analysis Course Guide](https://stevenholloway.github.io/ComicBooksCourse.github.io/TEI_CBML_Analysis.pdf)
 ### [TEI-CBML Scripting Course Guide](https://stevenholloway.github.io/ComicBooksCourse.github.io/tei_CBML_Scripting.pdf)
 ### [Watson Personality Insights Course Guide](https://stevenholloway.github.io/ComicBooksCourse.github.io/Watson_PersonalityInsights.pdf)
-
-<p></p>
+<br>
+<br>
 ## Speech Extracts for Machine Analysis
 ### [Batman in Batman The Dark Knight Returns](https://stevenholloway.github.io/ComicBooksCourse.github.io/Batman_DarkKnightReturns.txt)
 ### [Bechdel, Alison in Fun Home](https://stevenholloway.github.io/ComicBooksCourse.github.io/Bechdel_Alison.txt)
@@ -28,7 +29,8 @@
 ### [Rorschach in Watchmen](https://stevenholloway.github.io/ComicBooksCourse.github.io/Rorschach_Speeches.txt)
 ### [V in V for Vendetta](https://stevenholloway.github.io/ComicBooksCourse.github.io/V_VforVendetta.txt)
 
-<p></p>
+<br>
+<br>
 ## [Phantom Lady #17 in extended TEI-CBML markup]
 ## XQuery scripts for TEI-CBML analysis
 
