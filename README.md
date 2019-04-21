@@ -6,7 +6,7 @@
 # [Syllabus] and [Final Project Requirements]
 
 # ComicLife Course Guides
-## [Google Cloud Vision API Course Guide](https://github.com/Stevenholloway/Stevenholloway.github.io/Google_Cloud_Vision_API.pdf)
+## [Google Cloud Vision API Course Guide](https://github.com/Stevenholloway/ComicBooksCourse.github.io/Google_Cloud_Vision_API.pdf)
 ## [Hypothes.is Course Guide]
 ## [Image Classification Course Guide]
 ## [Pixlr Editor Course Guide]
