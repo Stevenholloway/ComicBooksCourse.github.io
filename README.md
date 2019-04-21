@@ -1,4 +1,4 @@
-# Welcome to the James Madison University **Comic Books, Analysis, and Digital Scholarship** Website
+# Welcome to the James Madison University _Comic_ _Books,_ _Analysis,_ _and_ _Digital_ _Scholarship_ Website
 
 ### In Fall 2018, Brian Flota and Steven W. Holloway co-taught an Honors 300 course using comic books and graphic novels. 
 
