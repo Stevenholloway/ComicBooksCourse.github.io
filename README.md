@@ -1,18 +1,35 @@
-# Welcome to **JMU Comics Course** test page
+# Welcome to the James Madison University **Comic Books, Analysis, and Digital Scholarship** Website
+
+### In Fall 2018, Brian Flota and Steven W. Holloway co-taught an Honors 300 course using comic books and graphic novels. 
 
 
-Whenever you commit to this repository, GitHub Pages will run Jekyll to rebuild the pages in your site, from the content in your Markdown files.
+# [Syllabus] and [Final Project Requirements]
 
-Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
+# ComicLife Course Guides
+## [Google Cloud Vision API Course Guide]
+## [Hypothes.is Course Guide]
+## [Image Classification Course Guide]
+## [Pixlr Editor Course Guide]
+## [Reverse Image Lookup Course Guide]
+## [Spreadsheet Madness for TEI-CBML Course Guide]
+## [Taporware Voyant IBM Watson NLU Course Guide]
+## [TEI-CBML Analysis Course Guide]
+## [TEI-CBML Scripting Course Guide]
 ## [Watson Personality Insights Course Guide](https://github.com/Stevenholloway/Stevenholloway.github.io/Watson_PersonailtyInsights.pdf)
+
+# Speech Extracts for Machine Analysis
+## [Batman in Batman The Dark Knight Returns]
+## [Bechdel, Alison in Fun Home]
+## [Bechdel, Bruce in Fun Home]
+## [Criminals in Phantom Lady #17 (1948)]
+## [Dr. Manhattan in Watchmen]
+## [Mutants in Batman The Dark Knight Returns]
+## [Rorschach in Watchmen]
+## [V in V for Vendetta]
+
+# [Phantom Lady #17 in extended TEI-CBML markup]
+# XQuery scripts for TEI-CBML analysis
+
 - Bulleted
 - List
 
