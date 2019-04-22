@@ -1,0 +1,2296 @@
+<?xml-model href="http://localhost:8080/exist/apps/teicomix/resources/schema/cbml.rnc" type="application/relax-ng-compact-syntax" xmlns:cbml="http://www.cbml.org/ns/1.0"?>
+<tei:TEI xmlns:tei="http://www.tei-c.org/ns/1.0">
+  <tei:teiHeader>
+    <!--tei:teiHeader is where the object of analysis is described, the methods of analysis, the parties responsible for the encoding, and so forth-->
+    <tei:fileDesc>
+      <tei:titleStmt>
+        <!-- tei:title: name of the comic book or graphic novel-->
+        <tei:title>Phantom Lady, Vol. 17, April 1948</tei:title>
+        <!-- tei:author: repeatable field for any creator of the content, whether writer, colorist, penciller, etc, specified using a "role" attribute -->
+        <tei:author role="writer">Ruth Ann Roche</tei:author>
+        <tei:author role="illustrator">Clarence Matthew Baker</tei:author>
+        <tei:editor>[If the comic or graphic novel has an editor, use this tag to record the name]</tei:editor>
+        <tei:respStmt>
+          <!-- party responsible for the creation of the TEI file -->
+          <tei:resp>Encoded in TEI/CBML by</tei:resp>
+          <tei:persName xml:id="SWH">Steven W. Holloway</tei:persName>
+        </tei:respStmt>
+        <!--JMU Department sponsorng this course-->
+        <tei:sponsor>JMU LET</tei:sponsor>
+      </tei:titleStmt>
+      <tei:editionStmt>
+        <tei:edition n="1.0">Initial release of the Phantom Lady #17 file</tei:edition>
+      </tei:editionStmt>
+      <tei:publicationStmt>
+        <tei:publisher>James Madison University</tei:publisher>
+        <tei:pubPlace>Harrisonburg VA</tei:pubPlace>
+        <tei:date>2017</tei:date>
+        <tei:address>
+          <tei:addrLine>[course Github URL]</tei:addrLine>
+        </tei:address>
+        <tei:availability>
+          <tei:licence target="http://creativecommons.org/licenses/by-nc/4.0/deed.en_US">Distributed under a Creative Commons Attribution-NonCommercial 4.0 Unported License</tei:licence>
+        </tei:availability>
+        <tei:publisher>Digital Comic Museum</tei:publisher>
+        <tei:date>2010</tei:date>
+        <tei:address>
+          <tei:addrLine>http://digitalcomicmuseum.com/index.php?dlid=12037</tei:addrLine>
+        </tei:address>
+        <tei:availability>
+          <tei:licence>Declared by Digital Comic Museum public domain legal status</tei:licence>
+        </tei:availability>
+      </tei:publicationStmt>
+      <tei:seriesStmt>
+        <tei:title>Phantom Lady</tei:title>
+      </tei:seriesStmt>
+      <tei:notesStmt>
+        <tei:note>OCR scanning accomplished using Google Cloud Vision API</tei:note>
+        <tei:note>Most of the text was double-keyed, however</tei:note>
+        <tei:note>Quality of JPEGs improved using Graphic Converter v.10</tei:note>
+      </tei:notesStmt>
+      <tei:sourceDesc>
+        <tei:biblStruct>
+          <!--bibliographic info about the comic book/graphic novel-->
+          <tei:monogr>
+            <tei:title level="s">Phantom Lady</tei:title>
+            <tei:author role="writer">
+              <tei:persName>
+                <tei:forename>Ruth Ann</tei:forename>
+                <tei:surname>Roche</tei:surname>
+              </tei:persName>
+              <tei:note>Writing under the pseudonym "Gregory Page." Writer of "The Soda Mint Killer!" and "The Stinging Whip!". Writer of "Evelyn Ellis" is unknown. Source:https://www.comics.org/issue/6644/ ; https://en.wikipedia.org/wiki/Ruth_Roche_(comics)</tei:note>
+            </tei:author>
+            <tei:author role="inker">
+              <tei:persName>
+                <tei:forename>Clarence Matthew</tei:forename>
+                <tei:surname>Baker</tei:surname>
+              </tei:persName>
+              <tei:note>For "The Soda Mint Killer!" and "The Stinging Whip!", incl. the cover. Illustrator for "Evelyn Ellis" is unknown. Source:https://www.comics.org/issue/6644/</tei:note>
+            </tei:author>
+            <tei:author role="penciller">
+              <tei:persName>
+                <tei:forename>Rudy</tei:forename>
+                <tei:surname>Palais</tei:surname>
+              </tei:persName>
+              <tei:note>For "Evelyn Ellis". Source:https://www.comics.org/issue/6644/</tei:note>
+            </tei:author>
+            <tei:imprint>
+              <tei:pubPlace>Wilkes-Barre, Pennsylvania</tei:pubPlace>
+              <tei:publisher>Fox Feature Syndicate, Inc.</tei:publisher>
+              <tei:date>April 1948</tei:date>
+            </tei:imprint>
+            <tei:biblScope>36 pages</tei:biblScope>
+            <tei:biblScope type="vol">17</tei:biblScope>
+            <tei:biblScope type="issue">April</tei:biblScope>
+            <tei:biblScope type="pp">36</tei:biblScope>
+          </tei:monogr>
+        </tei:biblStruct>
+      </tei:sourceDesc>
+    </tei:fileDesc>
+    <tei:encodingDesc>
+      <tei:projectDesc>
+        <tei:p>A 1948 Phantom Lady comic encoded using TEI/CBML in order to support advanced text and image mining techniques for a JMU class, used as a course template file</tei:p>
+        <tei:p>CBML, "Comic Book Markup Language" was developed by John Walsh (Indiana U.) for the analysis of comic books. To the default TEI elements, it adds "panel" with the custom attribute "characters", and includes the subelements "balloon" for direct speech, thought, etc. and "caption". "Panels" are usually grouped according to what is visible on a single printed page using "tei:div" elements with the attributes "panelGrp" and identifying "n" (number).</tei:p>
+      </tei:projectDesc>
+      <tei:editorialDecl>
+        <tei:interpretation>
+          <!-- describes the scope of any analytic or interpretive information added to the text in addition to the transcription. -->
+          <tei:p>The visual details and action of the comic have been described in declarative prose by the encoders in note elements that refer to either individual panels (type="panelDesc") or a panel group as a whole (type="panelGrpDesc").</tei:p>
+        </tei:interpretation>
+        <tei:normalization>
+          <tei:p>No attempt has been made to normalize the found-text spelling conventions</tei:p>
+          <tei:p>No attempt has been made to normalize the found-text capitalization conventions</tei:p>
+        </tei:normalization>
+      </tei:editorialDecl>
+      <tei:tagsDecl>
+        <!--rendition is used here to describe text emphasis and text color surrounds other than white-->
+        <tei:rendition xml:id="red">color: red;</tei:rendition>
+        <tei:rendition xml:id="yellow">color: yellow;</tei:rendition>
+        <tei:rendition xml:id="blue">color: blue;</tei:rendition>
+        <tei:rendition xml:id="green">color: green;</tei:rendition>
+        <tei:rendition xml:id="pink">color: pink;</tei:rendition>
+        <tei:rendition xml:id="white">color: white;</tei:rendition>
+        <tei:rendition xml:id="black">color: black;</tei:rendition>
+        <tei:rendition xml:id="large">font-size: large;</tei:rendition>
+        <tei:rendition xml:id="extra-large">font-size: extra-large;</tei:rendition>
+        <tei:rendition xml:id="b">font-style: bold;</tei:rendition>
+        <tei:rendition xml:id="cursive">font-style: cursive;</tei:rendition>
+        <tei:rendition xml:id="ital">font-style: italic;</tei:rendition>
+        <tei:rendition xml:id="uc">font-style: upper case;</tei:rendition>
+        <tei:rendition xml:id="block">font-style: block lettering;</tei:rendition>
+        <tei:rendition xml:id="box">font-style: letter inhabiting a contrasting box;</tei:rendition>
+        <tei:rendition xml:id="unline">font-style: no underline;</tei:rendition>
+        <tei:rendition xml:id="curving">font-style: curving;</tei:rendition>
+        <tei:rendition xml:id="dancing">font-style: dancing;</tei:rendition>
+        <tei:rendition xml:id="bottom">text-align: bottom;</tei:rendition>
+        <tei:rendition xml:id="vertical">text-align: vertical;</tei:rendition>
+      </tei:tagsDecl>
+      <tei:classDecl>
+        <tei:taxonomy>
+          <tei:bibl>Library of Congress Thesaurus for Graphic Materials</tei:bibl>
+          <tei:category>
+            <tei:catDesc>Comic books</tei:catDesc>
+          </tei:category>
+        </tei:taxonomy>
+      </tei:classDecl>
+    </tei:encodingDesc>
+    <tei:profileDesc>
+      <!-- (text-profile description) provides a detailed description of non-bibliographic aspects of a text, specifically the languages and sublanguages used, the situation in which it was produced, the participants and their setting.  -->
+      <tei:langUsage>
+        <tei:language ident="en-US">American English</tei:language>
+      </tei:langUsage>
+    </tei:profileDesc>
+    <tei:revisionDesc>
+      <tei:change when="2017-06-23" who="#SWH">[markup]: began tei-compliant markup</tei:change>
+      <tei:change when="2017-07-22" who="#SWH">ongoing encoding of PH17</tei:change>
+      <tei:change when="2017-07-31" who="#SWH">initial encoding of Phantom Lady #17 is complete</tei:change>
+      <tei:change when="2017-08-14" who="#SWH">corrections entered</tei:change>
+    </tei:revisionDesc>
+  </tei:teiHeader>
+  <tei:text>
+    <tei:interpGrp type="transportation-tech">
+      <tei:desc>a structured note field for transportation types</tei:desc>
+      <tei:interp xml:id="automobile"/>
+      <tei:interp xml:id="bus"/>
+      <tei:interp xml:id="hero_vehicle"/>
+      <tei:interp xml:id="airplane"/>
+      <tei:interp xml:id="train"/>
+    </tei:interpGrp>
+    <tei:interpGrp type="communication-tech">
+      <tei:desc>a structured note field for communication devices</tei:desc>
+      <tei:interp xml:id="telephone"/>
+      <tei:interp xml:id="radio"/>
+      <tei:interp xml:id="microphone"/>
+    </tei:interpGrp>
+    <tei:interpGrp type="gender-markers">
+      <tei:desc>a structured note field for (binary) gender marking</tei:desc>
+      <tei:interp xml:id="cleavage"/>
+      <tei:interp xml:id="prominent-breasts"/>
+      <tei:interp xml:id="bare-legs"/>
+      <tei:interp xml:id="bare-arms"/>
+      <tei:interp xml:id="prominent-eyelashes"/>
+      <tei:interp xml:id="bracelet"/>
+      <tei:interp xml:id="earring"/>
+      <tei:interp xml:id="necklace"/>
+      <tei:interp xml:id="dress"/>
+      <tei:interp xml:id="blouse"/>
+      <tei:interp xml:id="skirt"/>
+      <tei:interp xml:id="dress-gloves"/>
+      <tei:interp xml:id="mink-coat"/>
+      <tei:interp xml:id="lipstick"/>
+      <tei:interp xml:id="dress-hat"/>
+      <tei:interp xml:id="silk-stockings"/>
+      <tei:interp xml:id="purse"/>
+      <tei:interp xml:id="apron"/>
+      <tei:interp xml:id="dishes"/>
+      <tei:interp xml:id="mop"/>
+      <tei:interp xml:id="long-hair"/>
+      <tei:interp xml:id="context-kitchen"/>
+      <tei:interp xml:id="high-heeled-shoes"/>
+      <tei:interp xml:id="waistcoat"/>
+      <tei:interp xml:id="suit"/>
+      <tei:interp xml:id="necktie"/>
+      <tei:interp xml:id="bowtie"/>
+      <tei:interp xml:id="shirt"/>
+      <tei:interp xml:id="fedora"/>
+      <tei:interp xml:id="kerry_cap"/>
+      <tei:interp xml:id="facial-hair"/>
+      <tei:interp xml:id="cooks-hat"/>
+      <tei:interp xml:id="uniform-police"/>
+      <tei:interp xml:id="uniform-train"/>
+      <tei:interp xml:id="uniform-jockey"/>
+      <tei:interp xml:id="uniform-skimpy-heroine"/>
+      <tei:interp xml:id="short-hair"/>
+      <tei:interp xml:id="loafers"/>
+      <tei:interp xml:id="boots"/>
+      <tei:interp xml:id="wingtips"/>
+      <tei:interp xml:id="bib-overalls"/>
+      <tei:interp xml:id="train-agent-hat"/>
+      <tei:interp xml:id="pocket-handkerchief"/>
+      <tei:interp xml:id="male-pattern-baldness"/>
+      <tei:interp xml:id="jacket"/>
+      <tei:interp xml:id="pants"/>
+      <tei:interp xml:id="vest"/>
+      <tei:interp xml:id="jodhpurs"/>
+      <tei:interp xml:id="full-cup_bra"/>
+      <tei:interp xml:id="hair-bow"/>
+      <tei:interp xml:id="long-painted_fingrnails"/>
+    </tei:interpGrp>
+    <tei:interpGrp type="weapon-tech">
+      <tei:desc>a structured note field for weapon types</tei:desc>
+      <tei:interp xml:id="pistol"/>
+      <tei:interp xml:id="knife"/>
+      <tei:interp xml:id="machine-gun"/>
+      <tei:interp xml:id="poisoned-riding-crop"/>
+      <tei:interp xml:id="hand-grenade"/>
+      <tei:interp xml:id="bazooka"/>
+      <tei:interp xml:id="steel-knuckles"/>
+      <tei:interp xml:id="black-ray"/>
+      <tei:interp xml:id="lead-pipe"/>
+      <tei:interp xml:id="tear-gas_canister"/>
+    </tei:interpGrp>
+    <tei:interpGrp type="uniforms">
+      <tei:desc>a structured note field for uniforms</tei:desc>
+      <tei:interp xml:id="police"/>
+      <tei:interp xml:id="military"/>
+      <tei:interp xml:id="train_agent"/>
+      <tei:interp xml:id="crime-fighting_hero"/>
+      <tei:interp xml:id="jockey"/>
+    </tei:interpGrp>
+    <tei:interpGrp type="speech">
+      <tei:desc>types of speech in a cbml:balloon element</tei:desc>
+      <tei:interp xml:id="monologue"/>
+      <tei:interp xml:id="dialogue"/>
+      <tei:interp xml:id="interjection"/>
+      <tei:interp xml:id="command"/>
+      <tei:interp xml:id="narration"/>
+      <tei:interp xml:id="thought"/>
+    </tei:interpGrp>
+    <tei:interpGrp type="panel-transitions">
+      <tei:desc>The interp elements below include vocabulary that may be used to characterize the transition from the previous panel <tei:emph>to</tei:emph> the current panel.  The transition types listed below are defined by Scott McCloud in his <tei:bibl>
+        <tei:title>Understanding Comics</tei:title>
+        <tei:biblScope type="pp">(70-72)</tei:biblScope>
+      </tei:bibl>
+    </tei:desc>
+    <tei:interp xml:id="moment-to-moment"/>
+    <tei:interp xml:id="action-to-action"/>
+    <tei:interp xml:id="subject-to-subject"/>
+    <tei:interp xml:id="scene-to-scene"/>
+    <tei:interp xml:id="aspect-to-aspect"/>
+    <tei:interp xml:id="non-sequitur"/>
+  </tei:interpGrp>
+  <tei:front xmlns:cbml="http://www.cbml.org/ns/1.0">
+    <tei:docTitle>
+      <tei:titlePart type="main">
+        <tei:emph rendition="#red #block #extra-large #ital">Phantom <tei:lb/>
+      </tei:emph>
+      <tei:emph rendition="#red #block #cursive #ital #extra-large">Lady</tei:emph>
+    </tei:titlePart>
+  </tei:docTitle>
+  <cbml:panel type="cover">
+    <tei:note resp="#SWH" type="panelDesc">Phantom Lady, in costume, gazing sultrily at the reader, loosely bound to a wharf pier with ship's rope, holds her black-ray device in her left hand and its green case in her right.  Two men in the distance are running towards her, one of whom is clutching a knife.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#lipstick #prominent-eyelashes #cleavage #prominent-breasts #bare-legs #bare-arms #uniform-skimpy-heroine #long-hair"/>
+    <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#short-hair #fedora #suit #shirt #necktie"/>
+    <tei:note type="uniforms" subtype="crime-fighting-hero"/>
+    <tei:note type="weapon-tech" subtype="black-ray"/>
+    <tei:fw place="above" type="number">10¢</tei:fw>
+    <tei:fw place="above" type="text">APRIL</tei:fw>
+    <tei:fw place="above" type="logo">A FOX FEATURE PUBLICATION</tei:fw>
+    <tei:fw place="margin" type="text" rendition="#vertical">PHANTOM LADY</tei:fw>
+    <tei:head>
+      <tei:emph rendition="#ital">This Issue! <tei:lb/>
+    </tei:emph>
+    <tei:emph rendition="#red #block #ital">Phantom </tei:emph>
+    <tei:emph rendition="#cursive #ital">Lady <tei:lb/>
+  </tei:emph> in <tei:lb/>
+  <tei:emph rendition="#ital">"THE SODA MINT KILLER!" </tei:emph>
+  <tei:emph rendition="#ital">"THE STINGING WHIP!" </tei:emph>
+  <tei:emph rendition="#cursive">Also <tei:lb/>
+</tei:emph>A TRUE CRIME STORY <tei:emph rendition="#cursive">Narrated by <tei:lb/>
+</tei:emph> PHANTOM LADY.
+</tei:head>
+</cbml:panel>
+</tei:front>
+<tei:body xmlns:cbml="http://www.cbml.org/ns/1.0">
+  <tei:listPerson>
+    <tei:person xml:id="phantom_lady">
+      <tei:persName>
+        <tei:name>Phantom Lady</tei:name>
+        <tei:addName>Sandra Knight</tei:addName>
+      </tei:persName>
+      <tei:occupation role="hero">crime-fighting hero</tei:occupation>
+      <tei:sex value="2">female</tei:sex>
+      <tei:nationality>American</tei:nationality>
+      <tei:occupation role="human">socialite</tei:occupation>
+    </tei:person>
+    <tei:person xml:id="sandra_knight">
+      <tei:persName>
+        <tei:name>Sandra Knight</tei:name>
+        <tei:addName>Phantom Lady</tei:addName>
+      </tei:persName>
+      <tei:occupation role="hero">crime-fighting hero</tei:occupation>
+      <tei:sex value="2">female</tei:sex>
+      <tei:nationality>American</tei:nationality>
+      <tei:occupation role="human">socialite</tei:occupation>
+    </tei:person>
+    <tei:person xml:id="don_borden">
+      <tei:persName>
+        <tei:name>Don Borden</tei:name>
+      </tei:persName>
+      <tei:occupation>boy-friend of Sandra Knight</tei:occupation>
+      <tei:sex value="1">male</tei:sex>
+      <tei:nationality>American</tei:nationality>
+    </tei:person>
+    <tei:person xml:id="anonymous_criminal">
+      <tei:occupation>criminal</tei:occupation>
+      <tei:sex value="1">male</tei:sex>
+      <tei:nationality>American</tei:nationality>
+    </tei:person>
+    <tei:person xml:id="soda_mint_killer">
+      <tei:occupation>criminal mastermind</tei:occupation>
+      <tei:sex value="1">male</tei:sex>
+      <tei:nationality>American</tei:nationality>
+    </tei:person>
+    <tei:person xml:id="betty">
+      <tei:persName>
+        <tei:name>Betty</tei:name>
+      </tei:persName>
+      <tei:occupation>restaurant owner</tei:occupation>
+      <tei:sex value="2">female</tei:sex>
+      <tei:nationality>American</tei:nationality>
+    </tei:person>
+    <tei:person xml:id="drunk">
+      <tei:occupation>alcoholic</tei:occupation>
+      <tei:sex value="1">male</tei:sex>
+      <tei:nationality>American</tei:nationality>
+    </tei:person>
+    <tei:person xml:id="policeman">
+      <tei:occupation>police officer</tei:occupation>
+      <tei:sex value="1">male</tei:sex>
+      <tei:nationality>American</tei:nationality>
+    </tei:person>
+    <tei:person xml:id="bank_teller">
+      <tei:occupation>bank teller</tei:occupation>
+      <tei:sex value="1">male</tei:sex>
+      <tei:nationality>American</tei:nationality>
+    </tei:person>
+    <tei:person xml:id="anonymous_man">
+      <tei:sex value="1">male</tei:sex>
+      <tei:nationality>American</tei:nationality>
+    </tei:person>
+    <tei:person xml:id="anonymous_woman">
+      <tei:sex value="2">female</tei:sex>
+      <tei:nationality>American</tei:nationality>
+    </tei:person>
+    <tei:person xml:id="anonymous_jockey">
+      <tei:occupation>jockey</tei:occupation>
+      <tei:sex value="1">male</tei:sex>
+      <tei:nationality>American</tei:nationality>
+    </tei:person>
+    <tei:person xml:id="honest_jockey">
+      <tei:persName>
+        <tei:name>Mickey</tei:name>
+      </tei:persName>
+      <tei:occupation>jockey</tei:occupation>
+      <tei:sex value="1">male</tei:sex>
+      <tei:nationality>American</tei:nationality>
+    </tei:person>
+    <tei:person xml:id="dishonest_jockey">
+      <tei:persName>
+        <tei:name>Nosey</tei:name>
+      </tei:persName>
+      <tei:occupation>jockey</tei:occupation>
+      <tei:sex value="1">male</tei:sex>
+      <tei:nationality>American</tei:nationality>
+      <tei:occupation>criminal</tei:occupation>
+    </tei:person>
+    <tei:person xml:id="horse_race_bugler">
+      <tei:occupation>bugler</tei:occupation>
+      <tei:sex value="1">male</tei:sex>
+      <tei:nationality>American</tei:nationality>
+    </tei:person>
+    <tei:person xml:id="horse_race_fixer">
+      <tei:occupation>horse-race fixer</tei:occupation>
+      <tei:sex value="1">male</tei:sex>
+      <tei:nationality>American</tei:nationality>
+    </tei:person>
+    <tei:person xml:id="horse_race_announcer">
+      <tei:occupation>horse-race announcer</tei:occupation>
+      <tei:sex value="1">male</tei:sex>
+      <tei:nationality>American</tei:nationality>
+    </tei:person>
+    <tei:person xml:id="evelyn_ellis">
+      <tei:persName>
+        <tei:name>Evelyn Ellis</tei:name>
+      </tei:persName>
+      <tei:occupation>criminal mastermind</tei:occupation>
+      <tei:sex value="2">female</tei:sex>
+      <tei:nationality>American</tei:nationality>
+    </tei:person>
+    <tei:person xml:id="frankie">
+      <tei:persName>
+        <tei:name>Frank</tei:name>
+        <tei:addName>Frankie</tei:addName>
+      </tei:persName>
+      <tei:note>wears sky-blue checked suit, fedora, black shirt and orange necktie, clean-shaven</tei:note>
+      <tei:affiliation>husband of Evelyn Ellis</tei:affiliation>
+      <tei:occupation>criminal</tei:occupation>
+      <tei:sex value="1">male</tei:sex>
+      <tei:nationality>American</tei:nationality>
+      <tei:affiliation>member of Ellis Gang</tei:affiliation>
+    </tei:person>
+    <tei:person xml:id="tony">
+      <tei:persName>
+        <tei:name>Tony</tei:name>
+      </tei:persName>
+      <tei:note>wears brown round-top hat, grey suit, dark necktie, face either wrinkled with age or scarred, claen-shaven // Tony and Joe were confused by the comic book letterer</tei:note>
+      <tei:affiliation>member of Ellis Gang</tei:affiliation>
+      <tei:occupation>criminal</tei:occupation>
+      <tei:sex value="1">male</tei:sex>
+      <tei:nationality>American</tei:nationality>
+    </tei:person>
+    <tei:person xml:id="trainman">
+      <tei:occupation>trainmen</tei:occupation>
+      <tei:sex value="1">male</tei:sex>
+      <tei:nationality>American</tei:nationality>
+    </tei:person>
+    <tei:person xml:id="train_engineer">
+      <tei:occupation>train engineer</tei:occupation>
+      <tei:sex value="1">male</tei:sex>
+      <tei:nationality>American</tei:nationality>
+    </tei:person>
+    <tei:person xml:id="corrupt_station_agent">
+      <tei:occupation>train station agent</tei:occupation>
+      <tei:sex value="1">male</tei:sex>
+      <tei:nationality>American</tei:nationality>
+    </tei:person>
+    <tei:person xml:id="chief_of_police">
+      <tei:occupation>police chief</tei:occupation>
+      <tei:sex value="1">male</tei:sex>
+      <tei:nationality>American</tei:nationality>
+    </tei:person>
+    <tei:person xml:id="phil_police_detective">
+      <tei:persName>
+        <tei:name>Phil</tei:name>
+      </tei:persName>
+      <tei:occupation>police detective</tei:occupation>
+      <tei:sex value="1">male</tei:sex>
+      <tei:nationality>American</tei:nationality>
+    </tei:person>
+    <tei:person xml:id="joe">
+      <tei:persName>
+        <tei:name>Joe</tei:name>
+      </tei:persName>
+      <tei:note>wears grey fedora with leopard-print band, matching necktie and handkerchief, green suit, clean-shaven // Tony and Joe were confused by the comic book letterer</tei:note>
+      <tei:affiliation>member of Ellis Gang</tei:affiliation>
+      <tei:occupation>criminal</tei:occupation>
+      <tei:sex value="1">male</tei:sex>
+      <tei:nationality>American</tei:nationality>
+    </tei:person>
+    <tei:person xml:id="pete">
+      <tei:persName>
+        <tei:name>Pete</tei:name>
+      </tei:persName>
+      <tei:note>wears brown fedora with black band, light blue or grey suit, clean-shaven</tei:note>
+      <tei:affiliation>member of Ellis Gang</tei:affiliation>
+      <tei:occupation>criminal</tei:occupation>
+      <tei:sex value="1">male</tei:sex>
+      <tei:nationality>American</tei:nationality>
+    </tei:person>
+    <tei:person xml:id="sheriff">
+      <tei:occupation>sheriff</tei:occupation>
+      <tei:sex value="1">male</tei:sex>
+      <tei:nationality>American</tei:nationality>
+    </tei:person>
+  </tei:listPerson>
+  <tei:div n="1.1" type="panelGrp">
+    <cbml:panel n="1.1.1" type="title" characters="#phantom_lady #anonymous_criminal">
+      <tei:head>PHANTOM Lady</tei:head>
+      <tei:note resp="#SWH" type="panelDesc">Phantom Lady, emerging from a coal furnace, trains her black ray on two confounded criminals. The color scheme is black, white and shades of red.</tei:note>
+      <tei:note type="gender-markers" subtype="phantom_lady" ana="#lipstick #prominent-eyelashes #cleavage #prominent-breasts #bare-legs #bare-arms #uniform-skimpy-heroine #high-heeled-shoes #long-hair"/>
+      <tei:note type="weapon-tech" subtype="black-ray"/>
+      <cbml:caption rendition="#white">
+        <tei:emph rendition="#block #red">W</tei:emph>HO WOULD EXPECT TO FIND SANDRA KNIGHT, A SENATOR'S DAUGHTER. WORKING IN A HASH-HOUSE? BUT SHE HAD TO, SO THAT THE <tei:emph rendition="#b">PHANTOM LADY</tei:emph> COULD SERVE JUSTICE WITH A MURDER STEW THAT WAS BEING DISHED OUT BY THE MERCILESS <tei:emph rendition="#b">SODA MINT KILLER!</tei:emph>
+      </cbml:caption>
+      <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#fedora #suit #shirt #necktie #bowtie #facial-hair"/>
+    </cbml:panel>
+    <cbml:panel n="1.1.2" ana="#subject-to-subject" characters="#sandra_knight #don_borden">
+      <tei:note resp="#SWH" type="panelDesc">Sandra Knight and Don Borden are seen from behind as they walk arm-in-arm towards "Betty's Beanery".</tei:note>
+      <tei:note type="gender-markers" subtype="sandra_knight" ana="#dress #long-hair #bare-legs"/>
+      <cbml:balloon type="speech" ana="#dialogue" who="#don_borden">NICE OF YOU TO LOAN BETTY MONEY TO GET STARTED IN BUSINESS, SANDRA. HOPE SHE CAN COOK...</cbml:balloon>
+      <tei:note type="gender-markers" subtype="don_borden" ana="#suit #short-hair"/>
+      <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">SHE'S AN OLD FRIEND, DON. AND WHEN HER FATHER DIED, SHE WAS BROKE...</cbml:balloon>
+      <cbml:caption>
+        <tei:emph rendition="#block #red">S</tei:emph>ANDRA KNIGHT, REALLY PHANTOM LADY, ARRIVES WITH DON TO HELP A FRIEND... </cbml:caption>
+        <tei:floatingText type="diegetic" subtype="wooden-sign">
+          <tei:body>
+            <tei:p rendition="#cursive">Betty's<tei:lb/>
+          </tei:p>
+          <tei:p rendition="#cursive">Beanery<tei:lb/>
+        </tei:p>
+      </tei:body>
+    </tei:floatingText>
+  </cbml:panel>
+  <cbml:panel n="1.1.3" ana="#subject-to-subject" characters="#betty #anonymous_criminal">
+    <tei:note resp="#SWH" type="panelDesc">In a circular panel, one thug holds Betty while another slugs her on the jaw. The spatial line tracking of the slug matches the shape of the panel itself.</tei:note>
+    <tei:note type="gender-markers" subtype="betty" ana="#lipstick #prominent-eyelashes #dress #apron #prominent-breasts #cleavage #long-hair #bare-arms"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">WE WARNED YOU TO PAY UP, SISTER!</cbml:balloon>
+    <cbml:caption>BUT INSIDE...</cbml:caption>
+    <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#necktie #fedora #short-hair #suit #shirt"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#betty">I CAN'T PAY FOR PROTECTION... OHHH..</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">OH, YOU CAN'T EH?</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.1.4" ana="#action-to-action" characters="#anonymous_criminal #don_borden #sandra_knight">
+    <tei:note resp="#SWH" type="panelDesc">Thugs push Don and Sandra aside as they bolt out of the doorway of "Beatty's Beanery".</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#dress #long-hair"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#suit #short-hair"/>
+    <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#suit #shirt #necktie #fedora #short-hair"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#don_borden">HEY, YOU..</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">OUT OF OUR WAY, CHUM...</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">OHH! THEY'VE HURT<tei:emph rendition="#b">BETTY!</tei:emph>
+  </cbml:balloon>
+  <tei:floatingText type="diegetic" subtype="sign">
+    <tei:body>
+      <tei:p rendition="#cursive">Betty's<tei:lb/>
+    </tei:p>
+    <tei:p rendition="#cursive">Beanery<tei:lb/>
+  </tei:p>
+</tei:body>
+</tei:floatingText>
+</cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="1.2">
+  <tei:fw place="top" type="heading">
+    <tei:emph rendition="#uc #b">'PHANTOM LADY'</tei:emph>
+  </tei:fw>
+  <tei:fw place="bottom" type="footer">
+    <tei:emph rendition="#uc #b">NEXT ISSUE--'PHANTOM LADY'--ON SALE 2ND WEEK IN APRIL</tei:emph>
+  </tei:fw>
+  <cbml:panel n="1.2.1" ana="#subject-to-subject" characters="#sandra_knight #betty #don_borden">
+    <tei:note resp="#SWH" type="panelDesc">Don and Sandra, kneeling on the floor, help the beaten Beatty as she cradles her head.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#dress #long-hair #lipstick #prominent-eyelashes #prominent-breasts #cleavage"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#suit #shirt #necktie #short-hair"/>
+    <tei:note type="gender-markers" subtype="betty" ana="#dress #long-hair #lipstick #prominent-eyelashes #prominent-breasts #cleavage #bare-arms #bare-legs"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#don_borden">WHAT'S THE MATTER WITH ME?  I SHOULD HAVE SLUGGED THEM!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#betty">OHH... THOSE MEN...</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">YOU'LL BE ALL RIGHT, BETTY... BUT WHAT'S IT ALL ABOUT?</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.2.2" ana="#action-to-action" characters="#betty">
+    <tei:note resp="#SWH" type="panelDesc">Betty, cradling her head with her other hand, holds a card in her left hand, fingers splayed, while she looks down at the tabletop, sitting in a booth.</tei:note>
+    <tei:note type="gender-markers" subtype="betty" ana="#long-hair #lipstick #prominent-eyelashes #prominent-breasts #cleavage #bare-arms"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#betty">SEE THIS CARD.  I HAVE TO PAY THEM MONEY OR CLOSE UP! AND I CAN'T EVEN AFFORD TO HIRE ANY HELP. I MIGHT AS WELL GIVE UP.</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.2.3" ana="#action-to-action" characters="#sandra_knight #betty #don_borden">
+    <tei:note resp="#SWH" type="panelDesc">Full profile shot of Sandra as she examines the mobster's card, with one foot extending into a lower panel, with Don and the downcast Betty all sitting in a booth.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#dress #long-hair #lipstick #prominent-eyelashes #prominent-breasts #high-heeled-shoes #bare-legs"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#suit #shirt #necktie #short-hair"/>
+    <tei:note type="gender-markers" subtype="betty" ana="#dress #bare-arms"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">HMM... ACME PROTECTIVE ASSOCIATION!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#thought" who="#sandra_knight">THE OLD PROTECTION RACKET! MIGHT BE A JOB FOR PHANTOM LADY IN THIS</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.2.4" ana="#action-to-action" characters="#sandra_knight #don_borden">
+    <tei:note resp="#SWH" type="panelDesc">In a circular panel interrupted by the next one, headshots of Don and Sandra facing the unseen Betty, with Don putting on a busboy's hat.  Don's head is below Sandra's.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#dress #long-hair #lipstick #prominent-eyelashes"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#short-hair #cooks-hat"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#don_borden">CHEER UP, BETTY! YOU'VE JUST GOT TWO TEMPORARY ASSISTANTS! AND IF THOSE TOUGH CHARACTERS COME BACK, I'LL HANDLE THEM!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">A WONDERFUL IDEA, DON! I'LL WAIT ON TABLE!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.2.5" ana="#action-to-action" characters="#sandra_knight #don_borden #anonymous-man #anonymous_woman">
+    <tei:note resp="#SWH" type="panelDesc">Sandra, wearing a black dress and apron, strides across the foreground carrying a heavy load of dishes, making eye contact with Don to place an order. A couple sit on barstools at the counter.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#dress #long-hair #apron #bare-arms #bare-legs #prominent-breasts"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#short-hair #cooks-hat"/>
+    <tei:note type="gender-markers" subtype="anonymous_man" ana="#short-hair #pants"/>
+    <tei:note type="gender-markers" subtype="anonymous_woman" ana="#long-hair #dress #bare-legs #high-heeled-shoes"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">DRAW TWO, BLACK!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#thought" who="#don_borden">GET HER!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#don_borden">COMING UP!</cbml:balloon>
+    <cbml:caption>
+      <tei:emph rendition="#block #red">A</tei:emph>ND SOON. </cbml:caption>
+    </cbml:panel>
+    <cbml:panel n="1.2.6" ana="#subject-to-subject" characters="#sandra_knight">
+      <tei:note resp="#SWH" type="panelDesc">Sandra places a dish she has just washed atop a huge stack. She is seen from behind, the ribs on her stockings prominently displayed.</tei:note>
+      <tei:note type="gender-markers" subtype="sandra_knight" ana="#dress #long-hair #apron #bare-arms #silk-stockings #context-kitchen"/>
+      <cbml:balloon type="speech" ana="#thought" who="#sandra_knight">NOTHING FUNNY ABOUT THIS! BUT IF IT HELPS BETTY... AND IF PHANTOM LADY IS NEEDED, SHE'LL BE RIGHT ON HAND!</cbml:balloon>
+    </cbml:panel>
+    <cbml:panel n="1.2.7" ana="#subject-to-subject" characters="#sandra_knight">
+      <tei:note resp="#SWH" type="panelDesc">Sandra, throwing her back into mopping, faces the reader.</tei:note>
+      <tei:note type="gender-markers" subtype="sandra_knight" ana="#dress #long-hair #lipstick #prominent-eyelashes #prominent-breasts #apron #bare-arms #bare-legs #context-kitchen"/>
+      <cbml:balloon type="speech" ana="#thought" who="#sandra_knight">DARNED IF I DON'T WISH THEY WOULD SHOW UP! GET ME AWAY FROM THIS MOP!</cbml:balloon>
+      <tei:fw place="end" type="number">2</tei:fw>
+    </cbml:panel>
+  </tei:div>
+  <tei:div type="panelGrp" n="1.3">
+    <tei:fw place="top" type="heading">
+      <tei:emph rendition="#uc #b">'PHANTOM LADY'</tei:emph>
+    </tei:fw>
+    <cbml:panel n="1.3.1" ana="#subject-to-subject" characters="#soda_mint_killer #anonymous_criminal">
+      <tei:note resp="#SWH" type="panelDesc">Behind the glass window-door of "Acme Protective Assoc., Inc." three silhouetted figures talk.</tei:note>
+      <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#fedora"/>
+      <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">BUT I TELL YA, MINTS, THE DAME WON'T PAY!</cbml:balloon>
+      <cbml:balloon type="speech" ana="#dialogue" who="#soda_mint_killer">SOME COLLECTORS I GOT! AND ME WITH A STOMACH THAT'S KILLING ME!</cbml:balloon>
+      <cbml:caption>
+        <tei:emph rendition="#blue #block">A</tei:emph>ND ACROSS TOWN... </cbml:caption>
+        <tei:floatingText type="diegetic" subtype="window-sign">
+          <tei:body>
+            <tei:p rendition="#cursive">Acme<tei:lb/>
+          </tei:p>
+          <tei:p rendition="#ital">Protective<tei:lb/>
+        </tei:p>
+        <tei:p rendition="#ital">Assoc., Inc.<tei:lb/>
+      </tei:p>
+    </tei:body>
+  </tei:floatingText>
+</cbml:panel>
+<cbml:panel n="1.3.2" ana="#subject-to-subject" characters="#soda_mint_killer">
+  <tei:note resp="#SWH" type="panelDesc">Headshot of Soda Mint Killer popping a soda mint into his mouth.</tei:note>
+  <tei:note type="gender-markers" subtype="soda_mint_killer" ana="#short-hair #suit #shirt #necktie"/>
+  <cbml:balloon type="speech" ana="#dialogue" who="#soda_mint_killer">OOO... MY INDIGESTION! BUT SICK AS I AM, I'LL SHOW YOU STUPIDS HOW TO COLLECT FROM A DAME!</cbml:balloon>
+</cbml:panel>
+<cbml:panel n="1.3.3" ana="#subject-to-subject" characters="#anonymous_criminal #anonymous_criminal #soda_mint_killer">
+  <tei:note resp="#SWH" type="panelDesc">Elevated shot of three criminals conversing outside of "Betty's Beanery".</tei:note>
+  <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#fedora #suit"/>
+  <tei:note type="gender-markers" subtype="soda_mint_killer" ana="#fedora #suit"/>
+  <cbml:balloon type="speech" ana="#dialogue" who="#soda_mint_killer">REMEMBER, EASY DOES IT! WE'RE CUSTOMERS!</cbml:balloon>
+  <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">AN' THE CUSTOMER'S ALWAYS RIGHT, EH, MINTS? WE GOTCHA!</cbml:balloon>
+  <cbml:caption>
+    <tei:emph rendition="#block #red">N</tei:emph>O TIME IS LOST BY THE SLICK GANG... A 'MISSION' IS UNDER WAY... </cbml:caption>
+  </cbml:panel>
+  <cbml:panel n="1.3.4" ana="#subject-to-subject" characters="#sandra_knight #don_borden #soda_mint_killer #anonymous_criminal">
+    <tei:note resp="#SWH" type="panelDesc">Inside the diner, the members of the Soda mint Gang sit at a booth, while Don Borden is behind the counter and Sandra Knight is standing in front of the counter</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#dress #long-hair #apron #bare-arms #bare-legs"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#cooks-hat #short-hair"/>
+    <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#fedora #suit #short-hair"/>
+    <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#fedora #suit #shirt #necktie #short-hair #facial-hair"/>
+    <tei:note type="gender-markers" subtype="soda_mint_killer" ana="#fedora #suit #shirt #short-hair"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#don_borden">AW... MORE CUSTOMERS... AND I'M ABOUT TO DROP ON MY FEET!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">WOUNDN'T THEY? JUST AT CLOSING TIME! WELL, AFTER THEY LEAVE, WE'RE LOCKING THE DOORS! I'M TOO TIRED TO KEEP THIS UP!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.3.5" ana="#subject-to-subject" characters="#sandra_knight #anonymous_criminal">
+    <tei:note resp="#SWH" type="panelDesc">Sandra, attempting to wait on table, is grabbed around the waist by one of the Soda Mint Gang members</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#dress #long-hair #apron #high-heeled-shoes #bare-arms"/>
+    <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#fedora #suit #shirt #short-hair #facial-hair"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">WHAT'LL IT BE? HEY...!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">COME HERE, CUTIE!  YOU LOOK GOOD ENOUGH TO EAT!</cbml:balloon>
+    <tei:fw place="end" type="number">3</tei:fw>
+  </cbml:panel>
+  <cbml:panel n="1.3.6" ana="#action-to-action" characters="#sandra_knight #anonymous_criminal">
+    <tei:note resp="#SWH" type="panelDesc">Sandra's hand is breaking a plate over the offending Soda Mint Gang member's head.</tei:note>
+    <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#fedora #suit #shirt #necktie #short-hair #facial-hair"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">OH DO I? WELL, I SUGGEST YOU TRY THE SPECIALITY OF THE HOUSE, WISE GUY!</cbml:balloon>
+    <tei:sound>SPLUTTTT</tei:sound>
+  </cbml:panel>
+  <cbml:panel n="1.3.7" ana="#subject-to-subject" characters="#anonymous_criminal #sandra_knight #don_borden">
+    <tei:note resp="#SWH" type="panelDesc">As the offending Soda Mint Gang member pulls a knife, Sandra Knight backs away, eyes wide with terror. Don's silhouette is visible behind.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#dress #long-hair #apron"/>
+    <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#fedora #suit #short-hair"/>
+    <tei:note type="weapon-tech" subtype="knife"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">NOW, WAS THAT NICE? OF COURSE, IF YOU WANNA PLAY ROUGH...</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">OH, DON, H - HELP! HE'S GOT A KNIFE!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#don_borden">SANDRA!</cbml:balloon>
+  </cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="1.4">
+  <tei:fw place="top" type="heading">
+    <tei:emph rendition="#uc #b">'PHANTOM LADY'</tei:emph>
+  </tei:fw>
+  <cbml:panel n="1.4.1" ana="#action-to-action" characters="#sandra_knight #anonymous_criminal #don_borden">
+    <tei:note resp="#SWH" type="panelDesc">Sandra Knight is struggling in the grasp of a Soda Mint Gang member, who is brandishing a knife, while Don Borden races to the rescue.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#dress #long-hair #apron #bare-legs #high-heeled-shoes #prominent-breasts"/>
+    <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#fedora #suit #short-hair"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#cooks-hat #short-hair #pants"/>
+    <tei:note type="weapon-tech" subtype="knife"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#don_borden">I'M COMING, SANDRA!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">YOU BRUTE, I'LL...</cbml:balloon>
+    <cbml:balloon type="speech" ana="#thought" who="#sandra_knight">...CHANGE TO PHANTOM LADY IF I GET THE CHANCE...</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">YOU'LL WHAT?</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.4.2" ana="#action-to-action" characters="#don_borden #sandra_knight #betty #anonymous_criminal">
+    <tei:note resp="#SWH" type="panelDesc">Sandra Knight is freed as both Soda Mint Gang members beset Don Borden, one with knife in hand, the other wielding a pipe.  Betty is racing towards the scene.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#lipstick #prominent-eyelashes #dress #long-hair #prominent-breasts #cleavage"/>
+    <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#fedora #suit #short-hair"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#short-hair #pants"/>
+    <tei:note type="gender-markers" subtype="betty" ana="#dress #apron #bare-legs #bare-arms #prominent-breasts #cleavage"/>
+    <tei:note type="weapon-tech" subtype="knife"/>
+    <tei:note type="weapon-tech" subtype="lead-pipe"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">PIPE TH' HERO, JOE!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">YEAH! LEAD PIPE HIM!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#interjection" who="#don_borden">UGHHH...</cbml:balloon>
+    <cbml:balloon type="speech" ana="#thought" who="#sandra_knight">OHHH... THEY PLAY ROUGH! POOR DON!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.4.3" ana="#subject-to-subject" characters="#betty #sandra_knight">
+    <tei:note resp="#SWH" type="panelDesc">Betty accusingly addresses Sandra as she bolts out of the room.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#dress #long-hair #apron #bare-arms"/>
+    <tei:note type="gender-markers" subtype="betty" ana="#dress #long-hair"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#betty">SANDRA! DESERTING US!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#thought" who="#sandra_knight">THIS LOOKS BAD, RUNNING AWAY, BUT I MUST FIND A PLACE TO CHANGE INTO PHANTOM LADY!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.4.4" ana="#subject-to-subject" characters="#betty #soda_mint_killer #don_borden #anonymous_criminal">
+    <tei:note resp="#SWH" type="panelDesc">Betty shrinks away, melodrammatially, from the Soda Mint Killer, who is threatening her with a dish towel knotted in his hands. DOn Borden is being punched in the face by a gang member.</tei:note>
+    <tei:note type="gender-markers" subtype="betty" ana="#dress #long-hair #apron #cleavage"/>
+    <tei:note type="gender-markers" subtype="soda_mint_killer" ana="#fedora #suit #short-hair"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#betty">NO... DON'T..</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#soda_mint_killer">SO YOU WON'T PAY, EH, SISTER? OKAY... I BEEN NEEDIN' SOMEONE TO USE AS AN EXAMPLE TO THE OTHERS!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.4.5" ana="#action-to-action" characters="#betty #soda_mint_killer">
+    <tei:note resp="#SWH" type="panelDesc">Standing behind her, the Soda Mint Killer strangles Betty with the dish towel.</tei:note>
+    <tei:note type="gender-markers" subtype="betty" ana="#dress #long-hair #cleavage"/>
+    <tei:note type="gender-markers" subtype="soda_mint_killer" ana="#fedora #suit #short-hair"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#soda_mint_killer">HURRY IT UP, CHUM! AN' PUT THE GUY'S HANDS ON HER THROAT!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">SURE! LET THE CHUMP TAKE THE RAP!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.4.6" ana="#subject-to-subject" characters="#soda_mint_killer">
+    <tei:note resp="#SWH" type="panelDesc">The Soda Mint Killer tosses a soda mint into his mouth as he speaks.</tei:note>
+    <tei:note type="gender-markers" subtype="soda_mint_killer" ana="#fedora #suit #short-hair"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#soda_mint_killer">C'MON! WE'RE IN THE CLEAR... THE OTHER DAME HELPED US BY TAKIN' A POWDER!</cbml:balloon>
+    <tei:fw place="end" type="number">4</tei:fw>
+  </cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="1.5">
+  <tei:fw place="top" type="heading">
+    <tei:emph rendition="#uc">'PHANTOM LADY'</tei:emph>
+  </tei:fw>
+  <cbml:panel n="1.5.1" ana="#subject-to-subject" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">Sandra Knight, now costumed as Phantom Lady, races back into Beatty's Beanery.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #lipstick #prominent-eyelashes #prominent-breasts #cleavage #uniform-skimpy-heroine #bare-arms #bare-legs"/>
+    <tei:note type="uniforms" subtype="crime-fighting-hero"/>
+    <cbml:balloon type="speech" ana="#thought" who="#phantom_lady">HOPE I'M NOT TOO LATE TO SETTLE SOME CROOK'S HASH!</cbml:balloon>
+    <cbml:caption>BUT EVEN THEN...</cbml:caption>
+  </cbml:panel>
+  <cbml:panel n="1.5.2" ana="#action-to-action" characters="#phantom_lady #betty #don_borden">
+    <tei:note resp="#SWH" type="panelDesc">Phantom Lady looks aghast at Beatty's corpse and Don's unconscious body.</tei:note>
+    <tei:note type="gender-markers" subtype="betty" ana="#long-hair #dress #apron #bare-arms #bare-legs"/>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #lipstick #prominent-eyelashes #prominent-breasts #cleavage #uniform-skimpy-heroine #bare-arms #bare-legs"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#short-hair #pants"/>
+    <tei:note type="uniforms" subtype="crime-fighting-hero"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#phantom_lady">BETTY! THEY'VE KILLED HER! AND DON!... WHAT'S THAT CARD?</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.5.3" ana="#action-to-action" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">Headshot of Phantom Lady reading the criminal protection racket card.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #lipstick #prominent-eyelashes #uniform-skimpy-heroine #bare-arms"/>
+    <tei:note type="uniforms" subtype="crime-fighting-hero"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#phantom_lady">AT LEAST DON'S BREATHING! WHAT'S THIS? ACME PROTECTIVE ASSOCIATION! THE SAME CROOKS! NICE OF THEM TO PUT THEIR PHONE NUMBER DOWN HERE!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.5.4" ana="#action-to-action" characters="#drunk #phantom_lady #betty #don_borden">
+    <tei:note resp="#SWH" type="panelDesc">A weaving drunk enters the diner as Phantom Lady cradles a telephone receiver to her ear, with Don's and Beatty's bodies heaped up in the drunk's path..</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #lipstick #prominent-eyelashes"/>
+    <tei:note type="gender-markers" subtype="drunk" ana="#short-hair #fedora #suit #shirt"/>
+    <tei:note type="uniforms" subtype="crime-fighting-hero"/>
+    <cbml:caption>BUT AS PHANTOM LADY TALKS TO THE OPERATOR...</cbml:caption>
+    <cbml:balloon type="speech" ana="#dialogue" who="#drunk">SHAY...I WANNA SCHANWICH... HUH! DEAD PEOPLE! YEOWIE! LOTS OF DEAD PEOPLE!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.5.5" ana="#action-to-action" characters="#drunk #phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">Phantom Lady rushes out the door as the mental processes of the drunk begin to register, who is now foregrounded.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #uniform-skimpy-heroine #bare-arms #bare-legs"/>
+    <tei:note type="gender-markers" subtype="drunk" ana="#short-hair #fedora #suit #shirt"/>
+    <tei:note type="uniforms" subtype="crime-fighting-hero"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#drunk">PHANTOM LADY! YOU DID IT! YOU KILLED THE POOR DEAD PEOPLE!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#phantom_lady">TAKE IT EASY, CHUM, DON'T SPRAIN YOUR BRAIN! JUST CALL THE POLICE FOR ME!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.5.6" ana="#action-to-action" characters="#drunk">
+    <tei:note resp="#SWH" type="panelDesc">Narrow panel with tottering drunk, full-length, cries for help.</tei:note>
+    <tei:note type="gender-markers" subtype="drunk" ana="#short-hair #fedora #suit #shirt"/>
+    <cbml:balloon type="speech" ana="#interjection" who="#drunk">MURDER! HELP! POLICE! HELP! SAVE ME FROM THE PHANTOM LADY!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.5.7" ana="#action-to-action" characters="#drunk #policeman #betty #don_borden">
+    <tei:note resp="#SWH" type="panelDesc">One policeman helps a woosey Don up from the floor, Beatty's body beside him, as another one props up the weaving drunk.</tei:note>
+    <tei:note type="gender-markers" subtype="drunk" ana="#short-hair #fedora #suit #shirt"/>
+    <tei:note type="gender-markers" subtype="policeman" ana="#short-hair #uniform-police"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#short-hair #pants"/>
+    <tei:note type="gender-markers" subtype="betty" ana="#dress #apron #bare-legs"/>
+    <tei:note type="uniforms" subtype="police"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#policeman">PHANTOM LADY A KILLER! I DON'T BELIEVE IT!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#policeman">THIS IS THE GUY THAT DID IT! YOU'RE COMING WITH US, MY LITTLE RUM BLOSSOM!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#drunk">OHHH... MY HEAD!</cbml:balloon>
+    <tei:fw place="end" type="number">5</tei:fw>
+  </cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="1.6">
+  <tei:fw place="top" type="heading">
+    <tei:emph rendition="#uc">'PHANTOM LADY'</tei:emph>
+  </tei:fw>
+  <cbml:panel n="1.6.1" ana="#subject-to-subject" characters="#anonymous_criminal #phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">A member of the Soda Mint Killer gang watches Phantom Lady roar off in her fancy covertible.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #uniform-skimpy-heroine"/>
+    <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#fedora #suit #short-hair"/>
+    <tei:note type="transportation-tech" subtype="hero_vehicle"/>
+    <cbml:caption>WHILE FROM ACROSS THE STREET A GUARD POSTED BY MINTS SEES PHANTOM LADY DRIVE AWAY..</cbml:caption>
+    <cbml:balloon type="speech" ana="#thought" who="#anonymous_criminal">OH-OH! BETTER CALL MINTS AN' WARN HIM! HE'S GOT A SMART LOOK ON HER PAN, TOO!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.6.2" ana="#action-to-action" characters="#anonymous_criminal #bank_teller #anonymous-woman">
+    <tei:note resp="#SWH" type="panelDesc">The gang member is about to enter a telephone in a public space, perhaps a bank lobby.</tei:note>
+    <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#fedora #suit #short-hair"/>
+    <tei:note type="gender-markers" subtype="anonymous_woman" ana="#long-hair #dress #lipstick #prominent-eyelashes"/>
+    <tei:note type="gender-markers" subtype="anonymous_woman" ana="#long-hair #blouse #skirt #hair-bow"/>
+    <cbml:caption rendition="#yellow"/>
+    <cbml:balloon type="speech" ana="#thought" who="#anonymous_criminal">GLAD I WON'T BE THERE WHEN SHE ARRIVES! THAT DAME IS POISON!</cbml:balloon>
+    <tei:floatingText type="diegetic" subtype="sign">
+      <tei:body>
+        <tei:p>PUBL<tei:lb/>
+      </tei:p>
+      <tei:p>TELE<tei:lb/>
+    </tei:p>
+  </tei:body>
+</tei:floatingText>
+</cbml:panel>
+<cbml:panel n="1.6.3" ana="#action-to-action" characters="#anonymous_criminal">
+  <tei:note resp="#SWH" type="panelDesc">Telephone-booth-panel-shot of the gang member talking into a telephone receiver.</tei:note>
+  <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#fedora #suit #shirt #short-hair"/>
+  <tei:note type="communication-tech" subtype="telephone"/>
+  <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">YEAH, MINTS! AN' I THINK SHE'S GOIN TO YOUR PLACE! AND SHE LOOKS LIKE TROUBLE!</cbml:balloon>
+</cbml:panel>
+<cbml:panel n="1.6.4" ana="#subject-to-subject" characters="#anonymous_criminal #soda_mint_killer">
+  <tei:note resp="#SWH" type="panelDesc">The Soda Mint Killer slams the telephone receiver in his office as he barks orders to his two henchmen.</tei:note>
+  <tei:note type="gender-markers" subtype="soda_mint_killer" ana="#suit #shirt #short-hair #necktie"/>
+  <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#fedora #suit #shirt #short-hair #facial-hair"/>
+  <tei:note type="communication-tech" subtype="telephone"/>
+  <cbml:balloon type="speech" ana="#dialogue" who="#soda_mint_killer">GET MOVING YOU GUYS! PHANTOM LADY'S ON HER WAY HERE, AN' I WANNA GIVE HER A WARM WELCOME!</cbml:balloon>
+  <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">THAT'S BAD!</cbml:balloon>
+</cbml:panel>
+<cbml:panel n="1.6.5" ana="#action-to-action" characters="#anonymous_criminal">
+  <tei:note resp="#SWH" type="panelDesc">Opening a tall metal locker, the henchmen handle army surplus weapons.</tei:note>
+  <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#suit #shirt #necktie #short-hair"/>
+  <tei:note type="weapon-tech" subtype="hand-grenade"/>
+  <tei:note type="weapon-tech" subtype="bazooka"/>
+  <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">SMARTEST THING MINTS DID WAS TO BUY UP THIS OLD EQUIPMENT FROM TH' ARMY SURPLUS! LOOKIT THIS NICE BAZOOKA!</cbml:balloon>
+</cbml:panel>
+<cbml:panel n="1.6.6" ana="#action-to-action" characters="#anonymous_criminal #soda_mint_killer">
+  <tei:note resp="#SWH" type="panelDesc">Viewpoint from the Soda Mint Killer's left elbow reveals one criminal juggling two hand-grenades.</tei:note>
+  <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#suit #fedora #short-hair"/>
+  <tei:note type="gender-markers" subtype="soda_mint_killer" ana="#suit"/>
+  <tei:note type="weapon-tech" subtype="hand-grenade"/>
+  <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">AN' THESE PRETTY PINEAPPLES! HOPE TH' PHANTOM LADY LIKES FRUIT SALAD!</cbml:balloon>
+</cbml:panel>
+<cbml:panel n="1.6.7" ana="#action-to-action" characters="#soda_mint_killer">
+  <tei:note resp="#SWH" type="panelDesc">Standing in front of the metal lockers, the Soda Mint Killer tosses a mint into his mouth, echoing the playful behavior of his underling in the last panel.</tei:note>
+  <tei:note type="gender-markers" subtype="soda_mint_killer" ana="#short-hair #suit #shirt #necktie"/>
+  <cbml:balloon type="speech" ana="#dialogue" who="#soda_mint_killer">EASY WITH THOSE THINGS, BOYS! WE WANNA WIN THIS WAR WITH PHANTOM LADY WID 'EM!</cbml:balloon>
+  <tei:fw place="end" type="number">6</tei:fw>
+</cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="1.7">
+  <tei:fw place="top" type="heading">
+    <tei:emph rendition="#uc">'PHANTOM LADY'</tei:emph>
+  </tei:fw>
+  <cbml:panel n="1.7.1" ana="#scene-to-scene" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">Phantom Lady's convertible stops in front of a fenced-off construction scene.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair"/>
+    <tei:note type="transportation-tech" subtype="hero_vehicle"/>
+    <cbml:caption>SUDDENLY, AT THE END OF THE STREET...</cbml:caption>
+    <cbml:balloon type="speech" ana="#thought" who="#phantom_lady">SO THIS IS THE STREET! AND DEAD END AT THAT!</cbml:balloon>
+    <tei:floatingText type="diegetic" subtype="sign">
+      <tei:body>
+        <tei:p>DANGER</tei:p>
+      </tei:body>
+    </tei:floatingText>
+  </cbml:panel>
+  <cbml:panel n="1.7.2" ana="#action-to-action" characters="#anonymous_criminal">
+    <tei:note resp="#SWH" type="panelDesc">A gang member, leaning out of a window, fires a bazooka.</tei:note>
+    <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#short-hair #suit #shirt #fedora"/>
+    <tei:note type="weapon-tech" subtype="bazooka"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">ROCKETS TO YOU, PHANTOM LADY!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.7.3" ana="#action-to-action" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">Phantom Lady's convertible explodes as she races away on foot.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #prominent-breasts #uniform-skimpy-heroine #bare-arms #bare-legs"/>
+    <tei:note type="uniforms" subtype="crime-fighting-hero"/>
+    <tei:note type="transportation-tech" subtype="hero_vehicle"/>
+    <cbml:balloon type="speech" ana="#thought" who="#phantom_lady">YIKES! WHAT WAS THAT?..A BOMB? MY POOR CAR!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.7.4" ana="#action-to-action" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">Action shot of Phantom Lady leaping into a "foxhole" with hair flying upwards.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #prominent-eyelashes #lipstick #prominent-breasts #cleavage #uniform-skimpy-heroine #bare-arms #bare-legs"/>
+    <tei:note type="uniforms" subtype="crime-fighting-hero"/>
+    <cbml:balloon type="speech" ana="#thought" who="#phantom_lady">A FOXHOLE COMES IN HANDY DURING A WAR! JUST THE PLACE FOR ME TO GET OUT OF THE PATH OF THOSE FIREWORKS!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.7.5" ana="#action-to-action" characters="#anonymous_criminal">
+    <tei:note resp="#SWH" type="panelDesc">Cut to two gang members, one of whom has just thrown something.</tei:note>
+    <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#short-hair #suit #shirt #fedora #necktie #facial-hair"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">WE GOT HER CORNERED NOW!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">NEVER MIND THE GAB, KEEP AFTER HER! KEEP HER CORNERED!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.7.6" ana="#action-to-action" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">Explosions pockmark the landscape as Phantom Lady crouches in her exposed "foxhole".</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #prominent-eyelashes #lipstick #prominent-breasts #uniform-skimpy-heroine #bare-arms #bare-legs"/>
+    <tei:note type="uniforms" subtype="crime-fighting-hero"/>
+    <cbml:balloon type="speech" ana="#thought" who="#phantom_lady">NOT AS MUCH COVER AS I THOUGHT! GOT TO GET OUT OF HERE!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.7.7" ana="#action-to-action" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">She crawls into a large metal culvert.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #prominent-eyelashes #lipstick #prominent-breasts #cleavage #uniform-skimpy-heroine #bare-arms #bare-legs"/>
+    <tei:note type="uniforms" subtype="crime-fighting-hero"/>
+    <cbml:balloon type="speech" ana="#thought" who="#phantom_lady">MIGHT BE A LITTLE MORE PROTECTION IN HERE UNTIL THINGS COOL OFF!</cbml:balloon>
+    <tei:fw place="end" type="number">7</tei:fw>
+  </cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="1.8">
+  <tei:fw place="top" type="heading">
+    <tei:emph rendition="#uc">'PHANTOM LADY'</tei:emph>
+  </tei:fw>
+  <cbml:panel n="1.8.1" ana="#action-to-action" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">Venturing into the culvert with hands against the sides, the artist captures the darkness by using blue and black inks.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #prominent-breasts #uniform-skimpy-heroine #bare-arms #bare-legs"/>
+    <tei:note type="uniforms" subtype="crime-fighting-hero"/>
+    <cbml:balloon type="speech" ana="#thought" who="#phantom_lady">THIS IS MORE LIKE IT! THOSE BULLETS CAN'T GET IN HERE!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.8.2" ana="#subject-to-subject">
+    <tei:note resp="#SWH" type="panelDesc">Cut to a hand-grenade landing near the open culvert.</tei:note>
+    <tei:note type="weapon-tech" subtype="hand-grenade"/>
+    <cbml:caption>BUT PHANTOM LADY DIDN'T RECKON ON HAND GRENADES..</cbml:caption>
+    <tei:floatingText type="diegetic" subtype="sign">
+      <tei:body>
+        <tei:p>DANGER</tei:p>
+      </tei:body>
+    </tei:floatingText>
+  </cbml:panel>
+  <cbml:panel n="1.8.3" ana="#action-to-action">
+    <tei:note resp="#SWH" type="panelDesc">Exploding rocks and earth mark the detonation.</tei:note>
+  </cbml:panel>
+  <cbml:panel n="1.8.4" ana="#subject-to-subject" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">The panel is unrelieved black save for PL's speech balloon.</tei:note>
+    <cbml:balloon type="speech" ana="#thought" who="#phantom_lady">A CAVE-IN! I'M TRAPPED! GOT TO KEEP GOING FORWARD! BUT WHERE?</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.8.5" ana="#action-to-action" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">She kneels in the darkness, hands outspread, while a rat leaps across the foreground.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #prominent-eyelashes #lipstick #prominent-breasts #cleavage #uniform-skimpy-heroine #bare-arms #bare-legs"/>
+    <tei:note type="uniforms" subtype="crime-fighting-hero"/>
+    <cbml:balloon type="speech" ana="#thought" who="#phantom_lady">UGH! SEWER RATS!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.8.6" ana="#action-to-action" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">PL crawls on her hands and knees through the dark culvert.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #prominent-eyelashes #lipstick #prominent-breasts #uniform-skimpy-heroine #bare-arms #bare-legs"/>
+    <tei:note type="uniforms" subtype="crime-fighting-hero"/>
+    <cbml:balloon type="speech" ana="#thought" who="#phantom_lady">I'LL JUST FOLLOW MISTER RAT... MAYBE HE KNOWS A WAY OUT OF THIS IRON LUNG!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.8.7" ana="#action-to-action" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">PL emerges from the culvert in a raw earthen pit in a basement.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #lipstick #prominent-breasts #cleavage #uniform-skimpy-heroine #bare-arms #bare-legs"/>
+    <tei:note type="uniforms" subtype="crime-fighting-hero"/>
+    <cbml:balloon type="speech" ana="#thought" who="#phantom_lady">WELL, HOW DO YOU LIKE THAT, A BASEMENT! LOOKS LIKE A LOFT BUILDING!</cbml:balloon>
+    <tei:fw place="end" type="number">8</tei:fw>
+  </cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="1.9">
+  <tei:fw place="top" type="heading">
+    <tei:emph rendition="#uc">'PHANTOM LADY'</tei:emph>
+  </tei:fw>
+  <cbml:panel n="1.9.1" ana="#subject-to-subject" characters="#phantom_lady #anonymous_criminal">
+    <tei:note resp="#SWH" type="panelDesc">Male-clad legs move down the basement stairs as PL casts about for a hiding place.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair"/>
+    <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#pants #wingtips"/>
+    <cbml:balloon type="speech" ana="#thought" who="#phantom_lady">OH-OH! DIDN'T GET MUCH OF A CHANCE TO LOOK THINGS OVER, DID I?</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.9.2" ana="#action-to-action" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">PL crawls backwards into a cold metal furnace.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #prominent-eyelashes #lipstick #prominent-breasts #cleavage #uniform-skimpy-heroine #bare-arms #bare-legs"/>
+    <tei:note type="uniforms" subtype="crime-fighting-hero"/>
+    <cbml:balloon type="speech" ana="#thought" who="#phantom_lady">OUT OF THE FIRING LINE INTO THE FURNACE! BUT AT LEAST IT'S A PLACE TO LOOK AND LISTEN!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.9.3" ana="#action-to-action" characters="#anonymous_criminal">
+    <tei:note resp="#SWH" type="panelDesc">Two gang members stand in front of the open furnace with a box full of papers.</tei:note>
+    <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#short-hair #fedora #suit #shirt #necktie #facial-hair"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">BOY, THE COPS WOULD JUST LOVE THESE RECORDS!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">LEAVE IT TO MINTS TO FIGURE OUT HOW TO GET RID OF 'EM! COME ON, DUMP 'EM AN' LET'S BLOW!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.9.4" ana="#action-to-action" characters="#anonymous_criminal">
+    <tei:note resp="#SWH" type="panelDesc">Closeup of the papers being dumped into the furnace as another hand brings the flame of a cigarette lighter near.</tei:note>
+    <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#suit #shirt"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">IN A WAY IT'S SILLY TO WORRY ABOUT COPS NOW THAT WE'VE KNOCKED OFF THE PHANTOM LADY! BUT ORDERS IS ORDERS!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.9.5" ana="#action-to-action" characters="#anonymous_criminal #phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">Long shot of the two criminals in silhouette backing away from the sneezing furnace.</tei:note>
+    <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#short-hair #fedora #suit"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">HEY! THE FURNACE SNEEZED!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">YOU'RE NUTS! LET'S GO!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#phantom_lady">ACHOO!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.9.6" ana="#action-to-action" characters="#anonymous_criminal #phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">PL emerges from the furnace, shining her black ray at the fleeing criminals.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #prominent-breasts #uniform-skimpy-heroine #bare-arms #bare-legs"/>
+    <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#short-hair #fedora #suit"/>
+    <tei:note type="uniforms" subtype="crime-fighting-hero"/>
+    <tei:note type="weapon-tech" subtype="black-ray"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">PHANTOM LADY! YEOW! SOMETHING'S HAPPENED TO MY EYES! I'M BLIND!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#anonymous_criminal">HELP! ME TOO! CAN'T SEE! DON'T KILL US!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#phantom_lady">JUST A MINUTE, BOYS! DID I EVER SHOW YOU MY FAMOUS BLACK RAY?</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.9.7" ana="#action-to-action" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">PL unhooks a metal coal rake from the wall.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #prominent-eyelashes #lipstick #prominent-breasts #cleavage #uniform-skimpy-heroine #bare-arms"/>
+    <tei:note type="uniforms" subtype="crime-fighting-hero"/>
+    <cbml:balloon type="speech" ana="#thought" who="#phantom_lady">DON'T WORRY, I WOULDN'T CHEAT.. ESPECIALLY THE ELECTRIC CHAIR!</cbml:balloon>
+    <tei:fw place="end" type="number">9</tei:fw>
+  </cbml:panel>
+</tei:div>
+<tei:div>
+  <tei:fw place="top" type="heading">
+    <tei:emph rendition="#uc">'PHANTOM LADY'</tei:emph>
+  </tei:fw>
+  <cbml:panel n="1.10.1" ana="#subject-to-subject" characters="#phantom_lady #anonymous_criminal #soda_mint_killer">
+    <tei:note resp="#SWH" type="panelDesc">The Soda Mint Killer arms a hand-grenade with his teeth while watching PL bash a gang member over the head with the coal rake.</tei:note>
+    <tei:note type="gender-markers" subtype="soda_mint_killer" ana="#short-hair #suit #shirt"/>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana=" #long-hair #uniform-skimpy-heroine #bare-arms #bare-legs"/>
+    <tei:note type="gender-markers" subtype="anonymous_criminal" ana="#fedora #suit"/>
+    <tei:note type="uniforms" subtype="crime-fighting-hero"/>
+    <tei:note type="weapon-tech" subtype="hand-grenade"/>
+    <cbml:caption>BUT MINTS ONLY HAS STOMACH TROUBLE, THERE'S NOTHING THE MATTER WITH HIS EYES OR EARS...</cbml:caption>
+    <cbml:balloon type="speech" ana="#monologue" who="#soda_mint_killer">POIFECT! I GET RID OF PHANTON LADY AN' THOSE LUGS ALL IN ONE FLIP OF MY WRIST!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.10.2" ana="#action-to-action" characters="#phantom_lady #soda_mint_killer">
+    <tei:note resp="#SWH" type="panelDesc">The Soda Mint Killer lobs the grenade at PL as he leaps down the basement stairs.</tei:note>
+    <tei:note type="gender-markers" subtype="soda_mint_killer" ana="#short-hair #suit"/>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair"/>
+    <tei:note type="uniforms" subtype="crime-fighting-hero"/>
+    <tei:note type="weapon-tech" subtype="hand-grenade"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#soda_mint_killer">COMING AT YOU, CUTIE! TOO BAD YOU HAVE TO CROAK SO YOUNG!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#phantom_lady">OH-OH!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.10.3" ana="#action-to-action" characters="#phantom_lady #anonymous_criminal">
+    <tei:note resp="#SWH" type="panelDesc">Full-length shot of PL expertly fielding the grenade in mid-air, legs of an unconscious criminal next to the furnace with flames in its grating..</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #lipstick #prominent-eyelashes #prominent-breasts #cleavage #uniform-skimpy-heroine #bare-arms #bare-legs"/>
+    <tei:note type="uniforms" subtype="crime-fighting-hero"/>
+    <tei:note type="weapon-tech" subtype="hand-grenade"/>
+    <cbml:balloon type="speech" ana="#thought" who="#phantom_lady">ONE CHANCE... IF I CAN FIELD THIS THING BEFORE IT EXPLODES!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.10.4" ana="#action-to-action" characters="#phantom_lady #soda_mint_killer">
+    <tei:note resp="#SWH" type="panelDesc">PL athletically throws the grenade at the back of the fleeing Soda Mint Killer.</tei:note>
+    <tei:note type="gender-markers" subtype="soda_mint_killer" ana="#short-hair #suit"/>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #uniform-skimpy-heroine #bare-arms #bare-legs"/>
+    <tei:note type="uniforms" subtype="crime-fighting-hero"/>
+    <tei:note type="weapon-tech" subtype="hand-grenade"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#phantom_lady">WHAT'S YOUR HURRY? CAN'T A LADY RETURN A COMPLIMENT?</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.10.5" ana="#action-to-action" characters="#soda_mint_killer">
+    <tei:note resp="#SWH" type="panelDesc">A head-on vista of the surprised Soda Mint Killer propelled through the air, with a yellow and red explosion cloud behind.</tei:note>
+    <tei:note type="gender-markers" subtype="soda_mint_killer" ana="#short-hair #suit #shirt #necktie"/>
+  </cbml:panel>
+  <cbml:panel n="1.10.6" ana="#subject-to-subject" characters="#phantom_lady #policeman">
+    <tei:note resp="#SWH" type="panelDesc">Silhouettes of PL talking to a cop, his hands on his waist, with two corpses under sheets in the foreground.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #uniform-skimpy-heroine #prominent-breasts #bare-legs"/>
+    <tei:note type="gender-markers" subtype="policeman" ana="#short-hair #uniform-police"/>
+    <tei:note type="uniforms" subtype="crime-fighting-hero"/>
+    <tei:note type="uniforms" subtype="police"/>
+    <cbml:caption>SOON...</cbml:caption>
+    <cbml:balloon type="speech" ana="#dialogue" who="#policeman">WOW! LOOKS LIKE A CYCLONE HIT THIS PLACE!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#phantom_lady">IT DID, BUT I HAD TO CLEAR DON OF POOR BEATTY'S MURDER!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="1.10.7" ana="#scene-to-scene" characters="#phantom_lady #don_borden">
+    <tei:note resp="#SWH" type="panelDesc">Sandra Knight, wearing a low-cut red dress, sits behind the wheel of a convertible while Don strides down the "City Jail" entryway staircase.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #prominent-eyelashes #lipstick #necklace #dress #prominent-breasts #cleavage"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#short-hair #suit #shirt"/>
+    <tei:note type="transportation-tech" subtype="automobile"/>
+    <cbml:caption>AND...</cbml:caption>
+    <cbml:balloon type="speech" ana="#dialogue" who="#don_borden">DID YOU HEAR, SANDRA? PHANTOM LADY CAUGHT THE CROOKS AND CLEARED ME! IF ONLY I COULD SEE HER AND EXPRESS MY GRATITUDE!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#phantom_lady">WELL, YOU MIGHT TAKE ME OUT, I'LL TRY TO SUBSTITUTE FOR PHANTOM LADY.</cbml:balloon>
+    <tei:floatingText type="diegetic" subtype="sign">
+      <tei:body>
+        <tei:p>CITY<tei:lb/>
+      </tei:p>
+      <tei:p>JAIL<tei:lb/>
+    </tei:p>
+  </tei:body>
+</tei:floatingText>
+<tei:fw place="end" type="text" rendition="#cursive">The End</tei:fw>
+</cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="2.1">
+  <cbml:panel n="2.1.1" type="title" characters="#phantom_lady #dishonest_jockey">
+    <tei:head>
+      <tei:emph>PHANTOM LADY</tei:emph>
+    </tei:head>
+    <tei:note resp="#SWH" type="panelDesc">Phantom Lady, foregrounded in a burning stable, looks startled as a mounted jockey tries to stab her with a poisoned riding crop</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#cleavage #prominent-breasts #bare-legs #uniform-skimpy-heroine #long-hair #prominent-eyelashes #bare-legs"/>
+    <tei:note type="uniforms" subtype="crime-fighting-hero"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <tei:note type="weapon-tech" subtype="poisoned-riding-crop"/>
+    <cbml:caption>PHANTOM LADY HAD LITTLE EXPERIENCE WTH BANGTALS BUT PLENTY WITH MURDER, YET IT TOOK FAST THINKING AND ACTING TO KEEP UP WITH THE ADVENTURE OF "THE STINGING WHIP!"</cbml:caption>
+    <tei:note type="gender-markers" subtype="dishonest_jockey" ana="#uniform-jockey #boots #short-hair"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+  </cbml:panel>
+  <cbml:panel n="2.1.2" ana="#scene-to-scene" characters="#don_borden">
+    <tei:note resp="#SWH" type="panelDesc">Headshot of Don Borden speaking into a telephone receiver</tei:note>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#suit #necktie #short-hair"/>
+    <tei:note type="communication-tech" subtype="telephone"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#don_borden">CAN'T TELL YOU NOW, SANDRA, BUT MEET ME AT THE GRAND FAIRGROUNDS TRACK BEFORE THE FIRST RACE THIS AFTERNOON!</cbml:balloon>
+    <cbml:caption>SANDRA KNIGHT'S BOY FRIEND, DON BORDEN, IS BUBBLING OVER WITH SURPRISE...</cbml:caption>
+  </cbml:panel>
+  <cbml:panel n="2.1.3" ana="#subject-to-subject" characters="#sandra_knight">
+    <tei:note resp="#SWH" type="panelDesc">Sandra Knight, sprawled across a sofa, speaks into a telephone receiver, smiling broadly</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #lipstick #blouse #skirt #prominent-breasts #cleavage #bare-legs"/>
+    <tei:note type="communication-tech" subtype="telephone"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">A SURPRISE, EH? BETTER BE GOOD! I'LL BE THERE...</cbml:balloon>
+    <cbml:balloon type="speech" ana="#thought" who="#sandra_knight">AND SO WILL THE PHANTOM LADY! THINGS HAVE BEEN PRETTY DULL FOR HER LATELY!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.1.4" ana="#scene-to-scene" characters="#sandra_knight">
+    <tei:note resp="#SWH" type="panelDesc">Full length shot of Sandra Knight striding towards the viewer at the racetrack, wearing a green dress, matching dress hat with a green feather, white gloves, and necklace, clutching a purse in one hand</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #lipstick #dress #dress-hat #dress-gloves #purse #bare-legs"/>
+    <cbml:balloon type="speech" ana="#monologue" who="#sandra_knight">WELL, HERE I AM... NOW WHERE'S DON AND THAT TERRIFIC SURPRISE OF HIS!</cbml:balloon>
+    <cbml:caption>THAT AFTERNOON...</cbml:caption>
+  </cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="2.2">
+  <cbml:panel n="2.2.1" ana="#action-to-action" characters="#sandra_knight #don_borden #anonymous-man #anonymous_woman">
+    <tei:note resp="#SWH" type="panelDesc">With a crowd of anonymous horse-race attendees along the panel bottom, a full-length shot of Sandra Knight, her bare legs spilling halfway into the panel beneath, slews her head around with a big smile as Don taps her on the shoulder.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #lipstick #prominent-eyelashes #prominent-breasts #dress #dress-hat #dress-gloves #purse #bare-legs #high-heeled-shoes"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#suit #necktie #shirt #short-hair #fedora"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#don_borden">COME ON, BEAUTIFUL! THAT SURPRISE IS WAITING!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">OH! IT'S ABOUT TIME YOU SHOWED UP!</cbml:balloon>
+    <cbml:caption>BUT AS HE SITS AT THE TABLE... </cbml:caption>
+  </cbml:panel>
+  <cbml:panel n="2.2.2" ana="#action-to-action" characters="#sandra_knight #don_borden">
+    <tei:note resp="#SWH" type="panelDesc">Almost dragging her, Don races in front of the Pari Mutuel counter with SK in tow by her leg hand.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #lipstick #prominent-eyelashes #prominent-breasts #dress #dress-hat #dress-gloves #purse #bare-legs #high-heeled-shoes"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#suit #necktie #shirt #short-hair #fedora"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#don_borden">RIGHT THIS WAY... TO THE STABLES!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">STABLES?</cbml:balloon>
+    <tei:floatingText type="diegetic" subtype="sign">
+      <tei:body>
+        <tei:p rendition="#uc">PARI<tei:lb/>MUTUEL</tei:p>
+      </tei:body>
+    </tei:floatingText>
+  </cbml:panel>
+  <cbml:panel n="2.2.3" ana="#action-to-action" characters="#sandra_knight #don_borden">
+    <tei:note resp="#SWH" type="panelDesc">Frontal shot as Don points animately at something "off-panel".</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #lipstick #prominent-eyelashes #necklace #dress #dress-hat #dress-gloves #purse #bare-legs"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#suit #necktie #shirt #short-hair #fedora"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#don_borden">THERE! HOW'S THAT?</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">OOOOH! DON! BEAUTIFUL!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.2.4" ana="#aspect-to-aspect">
+    <tei:note resp="#SWH" type="panelDesc">narrow panel of a horse's head projecting from a stable half-door.</tei:note>
+  </cbml:panel>
+  <cbml:panel n="2.2.5" ana="#action-to-action" characters="#sandra_knight #don_borden">
+    <tei:note resp="#SWH" type="panelDesc">SK faces Don with Sugar Girl's head cradled in her gloved hands.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #lipstick #prominent-eyelashes #prominent-breasts #dress #dress-hat #dress-gloves"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#suit #fedora"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#don_borden">SUGAR GIRL, SHE'S MINE AND SHE'S RUNNING IN THE FOURTH RACE!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">I CAN'T GET USED TO IT! YOU A HORSE RACING MAN!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.2.6" ana="#subject-to-subject" characters="#sandra_knight #don_borden #honest_jockey">
+    <tei:note resp="#SWH" type="panelDesc">Ground perspective as a jockey waves hello to Don, SK's high-heeled shoes and silk stockings prominently foregrounded.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#silk-stockings #high-heeled-shoes"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#short-hair #suit #fedora #bowtie #shirt"/>
+    <tei:note type="gender-markers" subtype="honest_jockey" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#don_borden">AND HERE'S MY JOCKEY! HI THERE, MICKEY!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#honest_jockey">HELLO, MISTER BORDEN!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.2.7" ana="#action-to-action" characters="#honest_jockey">
+    <tei:note resp="#SWH" type="panelDesc">Headshot of a grinning jockey.</tei:note>
+    <tei:note type="gender-markers" subtype="honest_jockey" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#honest_jockey">HOW'S OUR WINNER, MISTER BORDEN?</cbml:balloon>
+    <tei:fw place="end" type="number">2</tei:fw>
+  </cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="2.3">
+  <tei:fw place="top" type="heading">
+    <tei:emph rendition="#uc">'PHANTOM LADY'</tei:emph>
+  </tei:fw>
+  <cbml:panel n="2.3.1" ana="#subject-to-subject" characters="#sandra_knight #don_borden">
+    <tei:note resp="#SWH" type="panelDesc">Front shot of dapper Don in foreground with SK, looking perplexed, shrugging with with hands.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #lipstick #prominent-eyelashes #necklace #prominent-breasts #dress #dress-hat #dress-gloves"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#suit #shirt #bowtie #fedora"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#don_borden">BET YOUR ROLL ON SUGAR GIRL, SUGAR! YOU CAN'T LOSE, SHE'S A SURE THING!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">I DON'T KNOW... I'M THREE MONTHS AHEAD ON MY ALLOWANCE NOW AND DAD WON'T LIKE...</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.3.2" ana="#action-to-action" characters="#sandra_knight #don_borden">
+    <tei:note resp="#SWH" type="panelDesc">Don waves a fistful of greenbacks towards the ticket counter as SK rocks back on her heels, chin cradled by one hand in perplexity.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #lipstick #prominent-eyelashes #prominent-breasts #dress #dress-hat #dress-gloves #bare-legs #high-heeled-shoes"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#suit #fedora"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#don_borden">DON'T BE A SISSY... ON THE NOSE, SANDRA! BET EVERYTHING YOU'VE GOT!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">WELL...</cbml:balloon>
+    <tei:floatingText type="diegetic" subtype="sign">
+      <tei:body>
+        <tei:p rendition="#uc">TICKETS</tei:p>
+      </tei:body>
+    </tei:floatingText>
+  </cbml:panel>
+  <cbml:panel n="2.3.3" ana="#action-to-action" characters="#sandra_knight #don_borden">
+    <tei:note resp="#SWH" type="panelDesc">SK steps away from the ticket counter with a wad of tickets in her right hand, Don nearly out of the panel.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #lipstick #prominent-eyelashes #prominent-breasts #dress #dress-hat #dress-gloves #bare-legs #high-heeled-shoes"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#suit #shirt #fedora"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">SUGER GIRL BETTER WIN, OR I'LL BE BEGGING FROM DOOR TO DOOR!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#thought" who="#sandra_knight">WONDER HOW MUCH PHANTOM LADY COULD PAWN HER BLACK RAY FOR?</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.3.4" ana="#subject-to-subject" characters="#horse_race_bugler #don_borden">
+    <tei:note resp="#SWH" type="panelDesc">Cut to an upwards shot of a horse-race bugler sounding his bugle.</tei:note>
+    <tei:note type="gender-markers" subtype="horse_race_bugler" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#don_borden">THE THIRD RACE! IT WON'T BE LONG NOW!</cbml:balloon>
+    <tei:sound>TA-RA-RAR-TA-RA</tei:sound>
+  </cbml:panel>
+  <cbml:panel n="2.3.5" ana="#subject-to-subject" characters="#honest_jockey">
+    <tei:note resp="#SWH" type="panelDesc">Cut to a scene with a worried Mickey striding in front of the stables, hands behind his back.</tei:note>
+    <tei:note type="gender-markers" subtype="honest_jockey" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <cbml:caption>BUT AT THAT MOMENT...</cbml:caption>
+    <cbml:balloon type="speech" ana="#thought" who="#honest_jockey">GEE, I DON'T KNOW WHAT TO DO! MISTER BORDEN'S BEEN SO NICE...</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.3.6" ana="#action-to-action" characters="#honest_jockey #horse_race_fixer">
+    <tei:note resp="#SWH" type="panelDesc">A horse-race fixer gestures towards a surprised Mickey with his finger.</tei:note>
+    <tei:note type="gender-markers" subtype="honest_jockey" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="gender-markers" subtype="horse_race_fixer" ana="#short-hair #fedora #suit #shirt"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#horse_race_fixer">PSSST! MICKEY! WE GOTTA SEE YOU!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#honest_jockey">HUH?</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.3.7" ana="#action-to-action" characters="#honest_jockey #horse_race_fixer #dishonest_jockey">
+    <tei:note resp="#SWH" type="panelDesc">Two horse-race fixers drag a struggling Mickey into a stable where the dishonest jockey waits.</tei:note>
+    <tei:note type="gender-markers" subtype="honest_jockey" ana="#uniform-jockey"/>
+    <tei:note type="gender-markers" subtype="horse_race_fixer" ana="#short-hair #fedora #suit"/>
+    <tei:note type="gender-markers" subtype="horse_race_fixer" ana="#short-hair #kerry_cap"/>
+    <tei:note type="gender-markers" subtype="dishonest_jockey" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#horse_race_fixer">YOU LITTLE TWO-TIMER!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#dishonest_jockey">QUICK! DRAG 'IM IN AN' SHUT TH' DOOR!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#honest_jockey">NO..LEMME GO!</cbml:balloon>
+    <tei:fw place="end" type="number">3</tei:fw>
+  </cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="2.4">
+  <tei:fw place="top" type="heading">
+    <tei:emph rendition="#uc">'PHANTOM LADY'</tei:emph>
+  </tei:fw>
+  <cbml:panel n="2.4.1" ana="#action-to-action" characters="#honest_jockey #dishonest_jockey #horse_race_fixer">
+    <tei:note resp="#SWH" type="panelDesc">A protesting Mickey shrinks away from the horse-race fixer, the dishonest jockey behind.</tei:note>
+    <tei:note type="gender-markers" subtype="honest_jockey" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="gender-markers" subtype="horse_race_fixer" ana="#short-hair #fedora #suit #shirt #necktie"/>
+    <tei:note type="gender-markers" subtype="dishonest_jockey" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <cbml:caption>AND, INSIDE THE GLOOMY STABLE...</cbml:caption>
+    <cbml:balloon type="speech" ana="#dialogue" who="#horse_race_fixer">LISTEN, YOU LITTLE BUM! NOSEY IS RIDING BLACK ACE AND SUGAR GIRL IS THE ONLY HORSE WHO CAN GIVE HER TROUBLE! NOW YOU PLAY THIS RIGHT, SEE?</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#honest_jockey">I TELL YOU, NO! I AIN'T GONNA THROW NO RACE! I QUIT THAT STUFF LONG AGO!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.4.2" ana="#action-to-action" characters="#dishonest_jockey">
+    <tei:note resp="#SWH" type="panelDesc">Portrait shot of a smirking dishonest jockey gripping a riding crop.</tei:note>
+    <tei:note type="gender-markers" subtype="dishonest_jockey" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <tei:note type="weapon-tech" subtype="poisoned-riding-crop"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#dishonest_jockey">BETTER LISTEN TO HIM, MICKEY, OR ELSE! WE GOT TWENTY THOUSAND ON BLACK ACE AND I GOT THE WHIP!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.4.3" ana="#action-to-action" characters="#dishonest_jockey">
+    <tei:note resp="#SWH" type="panelDesc">Closeup of the riding crop in the dishonest jockey's hand, revealing a knife-like projection on the end of the crop.</tei:note>
+    <tei:note type="gender-markers" subtype="dishonest_jockey" ana="#uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <tei:note type="weapon-tech" subtype="poisoned-riding-crop"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#dishonest_jockey">ONE SHOT OF THE STUFF IN THIS NEEDLE AN' YOU ROLL OVER AND PLAY DEAD! ONLY YOU WON'T BE PLAYING!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.4.4" ana="#action-to-action" characters="#honest_jockey #horse_race_fixer #dishonest_jockey">
+    <tei:note resp="#SWH" type="panelDesc">Mickey breaks away from the horse-race fixers, while the dishonest jockey hefts his weapon.</tei:note>
+    <tei:note type="gender-markers" subtype="honest_jockey" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="gender-markers" subtype="horse_race_fixer" ana="#short-hair #fedora"/>
+    <tei:note type="gender-markers" subtype="horse_race_fixer" ana="#short-hair #kerry_cap #jacket #pants"/>
+    <tei:note type="gender-markers" subtype="dishonest_jockey" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <tei:note type="weapon-tech" subtype="poisoned-riding-crop"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#horse_race_fixer">AW, LET'S CROAK THE LITTLE RAT!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#honest_jockey">GET OUT OF MY WAY, YOU CROOKS! IT'S ALMOST TIME FOR THE FOURTH RACE!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.4.5" ana="#action-to-action" characters="#honest_jockey #horse_race_fixer #dishonest_jockey">
+    <tei:note resp="#SWH" type="panelDesc">Mickey races at high speed from the stable, with criminals in pursuit.</tei:note>
+    <tei:note type="gender-markers" subtype="honest_jockey" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="gender-markers" subtype="horse_race_fixer" ana="#short-hair #kerry_cap #jacket #pants"/>
+    <tei:note type="gender-markers" subtype="dishonest_jockey" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <tei:note type="weapon-tech" subtype="poisoned-riding-crop"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#horse_race_fixer">GET HIM!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#dishonest_jockey">I'LL GIVE HIM THE NEEDLE RIGHT NOW!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#honest_jockey">I'LL GET AWAY AND BRING THE COPS!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.4.6" ana="#action-to-action" characters="#honest_jockey #dishonest_jockey">
+    <tei:note resp="#SWH" type="panelDesc">Mickey stumbles as he is gaffed from behind by the dishonest jockey, poisoned riding crop in hand.</tei:note>
+    <tei:note type="gender-markers" subtype="honest_jockey" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="gender-markers" subtype="dishonest_jockey" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <tei:note type="weapon-tech" subtype="poisoned-riding-crop"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#dishonest_jockey">NAME YOUR POISON, CHUMP!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.4.7" ana="#action-to-action" characters="#honest_jockey #horse_race_fixer #dishonest_jockey">
+    <tei:note resp="#SWH" type="panelDesc">Huge headshot of the dishonest jockey as the silhouetted criminals drag Mickey's body into the stable.</tei:note>
+    <tei:note type="gender-markers" subtype="honest_jockey" ana="#uniform-jockey"/>
+    <tei:note type="gender-markers" subtype="horse_race_fixer" ana="#short-hair #fedora"/>
+    <tei:note type="gender-markers" subtype="horse_race_fixer" ana="#short-hair #kerry_cap"/>
+    <tei:note type="gender-markers" subtype="dishonest_jockey" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#horse_race_fixer">WHAT'LL WE DO WITH THE BODY?</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#dishonest_jockey">WHO CARES! NOW BLACK ACE IS A CINCH! THEY'LL SCRATCH SUGAR GIRL!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#horse_race_fixer">ACT LIKE HE'S SICK... WE'LL PUT HIM AWAY TO COOL!</cbml:balloon>
+    <cbml:caption>THE DEADLY POISON WORKS INSTANTLY, AND...</cbml:caption>
+    <tei:fw place="end" type="number">4</tei:fw>
+  </cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="2.5">
+  <tei:fw place="top" type="heading">
+    <tei:emph rendition="#uc">'PHANTOM LADY'</tei:emph>
+  </tei:fw>
+  <cbml:panel n="2.5.1" ana="#subject-to-subject" characters="#sandra_knight #don_borden #anonymous_jockey">
+    <tei:note resp="#SWH" type="panelDesc">SK strides alongside a worried Don in front of the stable entrances.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #lipstick #prominent-eyelashes #prominent-breasts #dress #dress-hat #dress-gloves #bare-legs #high-heeled-shoes"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#suit #shirt #fedora #bowtie"/>
+    <tei:note type="gender-markers" subtype="anonymous_jockey" ana="#uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#don_borden">WHAT'S THE MATTER WITH MICKEY? NO SIGN OF HIM AND IT'S ALMOST TIME FOR THE FOURTH!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">WOE IS US! HOW CAN SUGAR GIRL WIN IF SHE DOESN'T RUN?</cbml:balloon>
+    <cbml:caption>AND...</cbml:caption>
+    <tei:floatingText type="diegetic" subtype="saddle-label">
+      <tei:body>
+        <tei:p rendition="#black #block">7</tei:p>
+      </tei:body>
+    </tei:floatingText>
+  </cbml:panel>
+  <cbml:panel n="2.5.2" ana="#action-to-action" characters="#sandra_knight #don_borden">
+    <tei:note resp="#SWH" type="panelDesc">Don breaks into a run, losing his hat, when he espies Sugar Girl trying to bolt out of her stable.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #lipstick #prominent-eyelashes #dress-hat"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#suit #shirt #fedora"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#don_borden">SOMETHING'S WRONG WITH SUGAR GIRL!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">SHE'S FRIGHTENED!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.5.3" ana="#action-to-action" characters="#sandra_knight #don_borden">
+    <tei:note resp="#SWH" type="panelDesc">View from within the stable as Sugar Girl rears on her hind legs, Don throwing his arms open protectively with SK behind. </tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #lipstick #prominent-eyelashes #dress #dress-hat #bare-legs"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#suit #shirt #bowtie"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#don_borden">THERE, GIRL! WHAT'S WRONG, EH?</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">JUST LIKE A WOMAN... HAVING HYSTERICS!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.5.4" ana="#action-to-action" characters="#sandra_knight">
+    <tei:note resp="#SWH" type="panelDesc">Narrow panel headshot of SK with a look of horror etched on her face.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #lipstick #prominent-eyelashes #dress-hat"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">ULLPP! OVER THERE! THINK I'LL HAVE HYSTERICS, TOO!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.5.5" ana="#subject-to-subject" characters="#honest_jockey">
+    <tei:note resp="#SWH" type="panelDesc">Inside the stable a pair of legs in equestrian boots and jodhpurs hang limply as a the shadow of a hanged man is visible behind.</tei:note>
+    <tei:note type="gender-markers" subtype="honest_jockey" ana="#uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+  </cbml:panel>
+  <cbml:panel n="2.5.6" ana="#action-to-action" characters="#sandra_knight #don_borden #honest_jockey">
+    <tei:note resp="#SWH" type="panelDesc">SK, kneeling in the hayloft, cuts down the rope and lowers Mickey's body to Don who is waiting on the stable floor.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #dress-hat #prominent-breasts #dress #dress-gloves #bare-legs #high-heeled-shoes"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#suit #short-hair"/>
+    <tei:note type="gender-markers" subtype="honest_jockey" ana="#uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">POOR BOY! WHY SHOULD HE DO SUCH A THING?</cbml:balloon>
+    <cbml:balloon type="speech" ana="#thought" who="#sandra_knight">IF HE DID DO IT TO HIMSELF! PHANTOM LADY, GET TO WORK!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.5.7" ana="#subject-to-subject" characters="#sandra_knight #don_borden">
+    <tei:note resp="#SWH" type="panelDesc">With blue background suggesting the scene has shifted to outside, Don whirles SK around by her arm in his eagerness to have Sugar Girtl run the race.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #dress-hat #dress #prominent-breasts #dress-gloves #bare-legs #high-heeled-shoes"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#suit #short-hair #bowtie #vest"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#don_borden">SANDRA! YOU CAN DO IT! YOU CAN SAVE THE DAY! YOU RIDE SUGAR GIRL!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">I'LL CALL THE POLICE. HEY...</cbml:balloon>
+    <tei:fw place="end" type="number">5</tei:fw>
+  </cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="2.6">
+  <tei:fw place="top" type="heading">
+    <tei:emph rendition="#uc">'PHANTOM LADY'</tei:emph>
+  </tei:fw>
+  <cbml:panel n="2.6.1" ana="#subject-to-subject" characters="#sandra_knight">
+    <tei:note resp="#SWH" type="panelDesc">SK, sitting on a wooden box in a stable, wearing a bra and the bottoms of her PL outfit, either pulls on a pair of pants or is removing her dress.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #lipstick #prominent-eyelashes #prominent-breasts #full-cup_bra #bare-legs #high-heeled-shoes"/>
+    <cbml:balloon type="speech" ana="#thought" who="#sandra_knight">THE THINGS I GET TALKED INTO! BUT IT ONLY TAKES A FEW MINUTES... AND IT'S DON'S HORSE... AND MY MONEY!</cbml:balloon>
+    <cbml:caption>SANDRA ABSOLUTELY REFUSED TO RIDE SUGAR GIRL, SO...</cbml:caption>
+  </cbml:panel>
+  <cbml:panel n="2.6.2" ana="#subject-to-subject" characters="#horse_race_bugler">
+    <tei:note resp="#SWH" type="panelDesc">Another panel with a portrait shot of the horse-race bugler blowing his horn.</tei:note>
+    <tei:note type="gender-markers" subtype="horse_race_bugler" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <tei:sound>TA-TA-TAR-TA</tei:sound>
+  </cbml:panel>
+  <cbml:panel n="2.6.3" ana="#subject-to-subject" characters="#anonymous_jockey">
+    <tei:note type="uniforms" subtype="jockey"/>
+    <tei:note resp="#SWH" type="panelDesc">Bird's eye view of the race contenders queuing up at the starting gate.</tei:note>
+    <cbml:caption>THIS IS IT... THE FOURTH RACE...</cbml:caption>
+  </cbml:panel>
+  <cbml:panel n="2.6.4" ana="#subject-to-subject" characters="#sandra_knight">
+    <tei:note resp="#SWH" type="panelDesc">SK, wearing jockey togs, is having trouble handling Sugar Girl.  The horse has a white face mask on like the other mounts, and wears a big "7" label behind the saddle.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <cbml:balloon type="speech" ana="#thought" who="#sandra_knight">GOT TO GET THIS OVER WITH... THERE'S A JOB WAITING FOR PHANTOM LADY! THE MORE I THINK ABOUT IT, THE LESS I THINK MICKEY HANGED HIMSELF!</cbml:balloon>
+    <tei:floatingText type="diegetic" subtype="saddle-label">
+      <tei:body>
+        <tei:p rendition="#white #block">7</tei:p>
+      </tei:body>
+    </tei:floatingText>
+  </cbml:panel>
+  <cbml:panel n="2.6.5" ana="#subject-to-subject" characters="#horse_race_announcer">
+    <tei:note resp="#SWH" type="panelDesc">Animated headshot of the horse-race announcer shouting into a microphone cradled in his right hand.</tei:note>
+    <tei:note type="gender-markers" subtype="horse_race_announcer" ana="#short-hair #fedora #suit #shirt"/>
+    <tei:note type="communication-tech" subtype="microphone"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#horse_race_announcer">THEY'RE OFF! SUGAR GIRL'S LEFT AT THE POST!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.6.6" ana="#subject-to-subject" characters="#sandra_knight">
+    <tei:note resp="#SWH" type="panelDesc">SK is hanging on as Sugar Girl bucks wildly.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #lipstick #prominent-eyelashes #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">STEADY, GIRL! THIS IS A RACE, NOT A RODEO! COME ON NOW!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.6.7" ana="#subject-to-subject" characters="#horse_race_fixer">
+    <tei:note resp="#SWH" type="panelDesc">The two horse-race fixers, one with binoculars before his eyes, register annoyance when they realize that Sugar Girl is still in the race.</tei:note>
+    <tei:note type="gender-markers" subtype="horse_race_fixer" ana="#short-hair #kerry_cap #shirt"/>
+    <tei:note type="gender-markers" subtype="horse_race_fixer" ana="#suit #short-hair #shirt #fedora"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#horse_race_fixer">WHAT TH... SUGAR GIRL'S GAINING! WHERE'D THEY GET THE OTHER JOCK?</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#horse_race_fixer">RELAX! NOSEY WILL TAKE CARE OF HIM!</cbml:balloon>
+    <cbml:caption>WHILE IN THE STANDS...</cbml:caption>
+    <tei:fw place="end" type="number">6</tei:fw>
+  </cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="2.7">
+  <tei:fw place="top" type="heading">
+    <tei:emph rendition="#uc">'PHANTOM LADY'</tei:emph>
+  </tei:fw>
+  <cbml:panel n="2.7.1" ana="#subject-to-subject" characters="#sandra_knight #dishonest_jockey">
+    <tei:note resp="#SWH" type="panelDesc">The dishonest jockey, looking left and backwards, sees Sugar Girl gaining on him.</tei:note>
+    <tei:note type="gender-markers" subtype="dishonest_jockey" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <cbml:balloon type="speech" ana="#thought" who="#dishonest_jockey">THAT NEW JOCK IS GAINING! I'D BETTER USE MY WHIP AGAIN!</cbml:balloon>
+    <cbml:caption>AND SURE ENOUGH...</cbml:caption>
+    <tei:floatingText type="diegetic" subtype="saddle-label">
+      <tei:body>
+        <tei:p rendition="#white #block">12</tei:p>
+      </tei:body>
+    </tei:floatingText>
+  </cbml:panel>
+  <cbml:panel n="2.7.2" ana="#action-to-action" characters="#sandra_knight #dishonest_jockey">
+    <tei:note resp="#SWH" type="panelDesc">SK ducks as the dishonest jockey tries to beat her with his riding crop.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #lipstick #prominent-eyelashes #uniform-jockey"/>
+    <tei:note type="gender-markers" subtype="dishonest_jockey" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <tei:note type="weapon-tech" subtype="poisoned-riding-crop"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#dishonest_jockey">I'M GIVING YOU A BREAK, SQUIRT! G'WAN... DROP BACK!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">HEY! WHAT'S GOING ON HERE?</cbml:balloon>
+    <tei:floatingText type="diegetic" subtype="saddle-label">
+      <tei:body>
+        <tei:p rendition="#white #block">12</tei:p>
+      </tei:body>
+    </tei:floatingText>
+  </cbml:panel>
+  <cbml:panel n="2.7.3" ana="#action-to-action" characters="#sandra_knight #dishonest_jockey">
+    <tei:note resp="#SWH" type="panelDesc">SK strikes the dishonest jockey smartly with her riding crop in retaliation, a red "explosion" of pain marking the impact.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #lipstick #prominent-eyelashes #prominent-breasts #uniform-jockey"/>
+    <tei:note type="gender-markers" subtype="dishonest_jockey" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">TWO CAN PLAY THAT GAME, BROTHER!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.7.4" ana="#action-to-action" characters="#dishonest_jockey">
+    <tei:note resp="#SWH" type="panelDesc">Closeup of exposed tip of the poisoned riding crop in the dishonest jockey's hand.</tei:note>
+    <tei:note type="gender-markers" subtype="dishonest_jockey" ana="#uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <tei:note type="weapon-tech" subtype="poisoned-riding-crop"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#dishonest_jockey">YOU ASKED FOR THIS, BUDDY!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.7.5" ana="#action-to-action" characters="#sandra_knight #dishonest_jockey">
+    <tei:note resp="#SWH" type="panelDesc">Elevated shot: As Sugar Girl pulls ahead, the dishonest jockey lunges at SK with his poisoned riding crop.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #uniform-jockey"/>
+    <tei:note type="gender-markers" subtype="dishonest_jockey" ana="#uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <tei:note type="weapon-tech" subtype="poisoned-riding-crop"/>
+    <cbml:caption>NOSEY TRIES TO STAB SANDRA'S LEG, BUT SHE PICKS UP SPEED...</cbml:caption>
+  </cbml:panel>
+  <cbml:panel n="2.7.6" ana="#action-to-action" characters="#sandra_knight">
+    <tei:note resp="#SWH" type="panelDesc">Sugar Girl faulters and loses control as SK fights to maintain her mount.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">WHAT'S THE MATTER, GIRL? WHAT HAPPENED?</cbml:balloon>
+    <cbml:caption>YET NOT ENOUGH SPEED..THE NEEDLE REACHED SUGAR GIRL.</cbml:caption>
+  </cbml:panel>
+  <cbml:panel n="2.7.7" ana="#action-to-action" characters="#sandra_knight">
+    <tei:note resp="#SWH" type="panelDesc">SK, thrown from the saddle, flies out of the horse-race track into the surrounding greenery as Sugar Girl somersaults in the background.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #lipstick #prominent-eyelashes #prominent-breasts #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">OOOH!</cbml:balloon>
+    <tei:fw place="end" type="number">7</tei:fw>
+  </cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="2.8">
+  <tei:fw place="top" type="heading">
+    <tei:emph rendition="#uc">'PHANTOM LADY'</tei:emph>
+  </tei:fw>
+  <cbml:panel n="2.8.1" ana="#action-to-action" characters="#sandra_knight">
+    <tei:note resp="#SWH" type="panelDesc">SK in jockey togs cradles her head as she begins to pull herself to her feet.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #lipstick #prominent-eyelashes #prominent-breasts #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <cbml:balloon type="speech" ana="#thought" who="#sandra_knight">OOH, MY POOR HEAD! BUT AT LEAST THIS GIVES ME A CHANCE TO CHANGE INTO THE PHANTOM LADY!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.8.2" ana="#action-to-action" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">SK, now togged as PL, races towards the track.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #prominent-breasts #uniform-skimpy-heroine #bare-arms #bare-legs"/>
+    <tei:note type="uniforms" subtype="crime-fighting_hero"/>
+    <cbml:balloon type="speech" ana="#thought" who="#phantom_lady">POOR SUGAR GIRL! NOW I'VE GOT AN IDEA OF HOW MICKEY WAS KILLED! SOMEONE'S GOING TO PAY FOR THIS!</cbml:balloon>
+    <cbml:caption>SO... IN LESS THAN A MINUTE...</cbml:caption>
+  </cbml:panel>
+  <cbml:panel n="2.8.3" ana="#action-to-action" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">PL leaps over a wooden restraining fence.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #lipstick #cleavage #prominent-breasts #uniform-skimpy-heroine #bare-arms #bare-legs"/>
+    <tei:note type="uniforms" subtype="crime-fighting_hero"/>
+    <cbml:balloon type="speech" ana="#thought" who="#phantom_lady">BETTER START WITH THE STABLES AND LOCATE THAT JOCKEY!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.8.4" ana="#action-to-action" characters="#phantom_lady #dishonest_jockey">
+    <tei:note resp="#SWH" type="panelDesc">Concealed behind a wall, PL watches a mounted jockey riding towards the stables.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #lipstick #uniform-skimpy-heroine"/>
+    <tei:note type="gender-markers" subtype="dishonest_jockey" ana="#uniform-jockey"/>
+    <tei:note type="uniforms" subtype="crime-fighting_hero"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <cbml:balloon type="speech" ana="#thought" who="#phantom_lady">HAH! HERE COMES MY BROKEN-NOSED CHUM NOW! BY THE LOOK OF HIM THEY DISQUALIFIED HIM!</cbml:balloon>
+    <cbml:caption>BUT...</cbml:caption>
+  </cbml:panel>
+  <cbml:panel n="2.8.5" ana="#action-to-action" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">PL athletically pulls herself up on to the stable roof.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #uniform-skimpy-heroine #bare-arms #bare-legs"/>
+    <tei:note type="uniforms" subtype="crime-fighting_hero"/>
+    <cbml:balloon type="speech" ana="#thought" who="#phantom_lady">I'LL JUST GIVE HIM ONE LAST SURPRISE!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.8.6" ana="#action-to-action" characters="#phantom_lady #dishonest_jockey">
+    <tei:note resp="#SWH" type="panelDesc">Racing across the stable roof, she keeps the riding jockey in sight.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #lipstick #uniform-skimpy-heroine #prominent-breasts #cleavage #bare-arms #bare-legs"/>
+    <tei:note type="gender-markers" subtype="dishonest_jockey" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="crime-fighting_hero"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+  </cbml:panel>
+  <cbml:panel n="2.8.7" ana="#action-to-action" characters="#phantom_lady #dishonest_jockey">
+    <tei:note resp="#SWH" type="panelDesc">Descending with red cape flying out behind, arms open in front, PL drops from the roof on to the terrified dishonest jockey.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #lipstick #uniform-skimpy-heroine #bare-arms #bare-legs"/>
+    <tei:note type="gender-markers" subtype="dishonest_jockey" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="crime-fighting_hero"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#phantom_lady">HERE I AM, KILLER, READY OR NOT!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#dishonest_jockey">PHANTOM LADY!</cbml:balloon>
+    <tei:fw place="end" type="number">8</tei:fw>
+  </cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="2.9">
+  <tei:fw place="top" type="heading">
+    <tei:emph rendition="#uc">'PHANTOM LADY'</tei:emph>
+  </tei:fw>
+  <cbml:panel n="2.9.1" ana="#action-to-action" characters="#phantom_lady #dishonest_jockey">
+    <tei:note resp="#SWH" type="panelDesc">Grabbing the dishonest jockey by the throat, PL drags him from his horse with the impetus of her fall.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #lipstick #prominent-eyelashes #uniform-skimpy-heroine #prominent-breasts #cleavage #bare-arms #bare-legs"/>
+    <tei:note type="gender-markers" subtype="dishonest_jockey" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="crime-fighting_hero"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#phantom_lady">YOU WON'T GET THE CHANCE TO USE THAT TRICK WHIP ON ME!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.9.2" ana="#subject-to-subject" characters="#phantom_lady #horse_race_fixer">
+    <tei:note resp="#SWH" type="panelDesc">PL, eyes wide with surprise, is in turn grabbed around her throat by a horse-race fixer using the crook of his arm.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #lipstick #prominent-eyelashes #uniform-skimpy-heroine #prominent-breasts #cleavage #bare-arms"/>
+    <tei:note type="gender-markers" subtype="horse_race_fixer" ana="#short-hair #fedora #suit #shirt"/>
+    <tei:note type="uniforms" subtype="crime-fighting_hero"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#phantom_lady">HUHH... WHO?</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#horse_race_fixer">JUST RELAX, BABE ...WHILE YOU GOT THE CHANCE!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.9.3" ana="#action-to-action" characters="#phantom_lady #horse_race_fixer #dishonest_jockey">
+    <tei:note resp="#SWH" type="panelDesc">PL is dragged backwards into the stable by the two horse-race fixers, echoing Mickey's capture, with a silhouette of the dishonest jockey's profile, lip curled in anger.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#uniform-skimpy-heroine #bare-legs"/>
+    <tei:note type="gender-markers" subtype="horse_race_fixer" ana="#short-hair #fedora #suit"/>
+    <tei:note type="gender-markers" subtype="horse_race_fixer" ana="#short-hair #kerry_cap #jacket"/>
+    <tei:note type="gender-markers" subtype="dishonest_jockey" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="crime-fighting_hero"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#horse_race_fixer">MAYBE IT WAS ON ACCOUNT OF HER WE WAS DISQUALIFIED AND LOST OUR DOUGH!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#dishonest_jockey">GET HER OUT OF MY SIGHT, YOU BIRD-BRAINS!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.9.4" ana="#action-to-action" characters="#sandra_knight #horse_race_fixer">
+    <tei:note resp="#SWH" type="panelDesc">PL, thrown to the stable floor, pushes herself up on the straw as the criminals stand near the doorway, a clinched fist visible.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #prominent-eyelashes #lipstick #prominent-breasts #cleavage #uniform-skimpy-heroine #bare-arms #bare-legs"/>
+    <tei:note type="gender-markers" subtype="horse_race_fixer" ana="#short-hair #fedora #suit"/>
+    <tei:note type="gender-markers" subtype="horse_race_fixer" ana="#short-hair #kerry_cap #jacket"/>
+    <tei:note type="uniforms" subtype="crime-fighting_hero"/>
+    <cbml:balloon type="speech" ana="#thought" who="#sandra_knight">AND ME WITH NO BLACK RAY! MUST THINK OF SOME WAY OUT...</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#horse_race_fixer">GO AHEAD... GET HER!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.9.5" ana="#subject-to-subject" characters="#horse_race_fixer">
+    <tei:note resp="#SWH" type="panelDesc">Portrait shot of the horse-race fixer wearing a Kerry cap, brandishing a bowie knife.</tei:note>
+    <tei:note type="gender-markers" subtype="horse_race_fixer" ana="#short-hair #kerry_cap #jacket #shirt"/>
+    <tei:note type="weapon-tech" subtype="knife"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#horse_race_fixer">NO POISON NEEDLE FOR PHANTOM LADY!, SHE NEEDS A CLASSY EXIT! LIKE A CARVING!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.9.6" ana="#subject-to-subject" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">Crawling across the straw on the stable floor, a wisp of smoke curls near PL's fingers.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #prominent-eyelashes #lipstick #prominent-breasts #cleavage #uniform-skimpy-heroine #bare-arms"/>
+    <tei:note type="uniforms" subtype="crime-fighting_hero"/>
+    <cbml:balloon type="speech" ana="#thought" who="#phantom_lady">MY LAST CHANCE AND MATCH... NOW IF THAT STRAW WILL ONLY CATCH... </cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.9.7" ana="#subject-to-subject">
+    <tei:note resp="#SWH" type="panelDesc">A blazing heap of straw with dark smoke billowing above, fills the panel.</tei:note>
+    <tei:fw place="end" type="number">9</tei:fw>
+  </cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="2.10">
+  <tei:fw place="top" type="heading">
+    <tei:emph rendition="#uc">'PHANTOM LADY'</tei:emph>
+  </tei:fw>
+  <cbml:panel n="2.10.1" ana="#action-to-action" characters="#dishonest_jockey #horse_race_fixer">
+    <tei:note resp="#SWH" type="panelDesc">The terrified dishonest jockey flees a melee of burning stable and charging, beserk horses.</tei:note>
+    <tei:note type="gender-markers" subtype="dishonest_jockey" ana="#short-hair #uniform-jockey"/>
+    <tei:note type="uniforms" subtype="jockey"/>
+    <cbml:caption>THAT INSTANT, FLAMES THROW PANIC AMONGST THE HORSES... AS IF A SIGNAL FOR DESTRUCTION, THEY CHARGE THE GANGSTERS...</cbml:caption>
+  </cbml:panel>
+  <cbml:panel n="2.10.2" ana="#action-to-action" characters="#horse_race_fixer #phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">With her back to the viewer, PL directs a stream of water from a fire exhinguisher at the flames as a voice rises from a silhouette behind.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #prominent-breasts #uniform-skimpy-heroine #bare-arms #bare-legs"/>
+    <tei:note type="uniforms" subtype="crime-fighting_hero"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#horse_race_fixer">YOU AIN'T WON YET, PHANTOM LADY!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#phantom_lady">OH-OH! I THOUGHT ALL OF YOU WERE UNDER CONTROL!</cbml:balloon>
+    <cbml:caption>BUT...</cbml:caption>
+  </cbml:panel>
+  <cbml:panel n="2.10.3" ana="#action-to-action" characters="#horse_race_fixer #phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">The Kerry-cap wearing criminal throws out his arm as he is blinded by the contents of the fire extinguisher sprayed into his face by PL.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #prominent-eyelashes #lipstick #prominent-breasts #cleavage #uniform-skimpy-heroine #bare-arms"/>
+    <tei:note type="gender-markers" subtype="horse_race_fixer" ana="#kerry_cap #jacket #shirt"/>
+    <tei:note type="uniforms" subtype="crime-fighting_hero"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#horse_race_fixer">HEY! MY EYES! HELP!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#phantom_lady">WISH THIS WAS MY BLACK RAY, BUT YOU'LL HAVE TO SETTLE FOR A SQUIRT...  SQUIRT!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="2.10.4" ana="#subject-to-subject" characters="#policeman #phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">Bird's eye view of the Kerry-cap criminal, hands rubbing his eyes, held by uniformed cops as PL sprints away.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #uniform-skimpy-heroine #bare-arms #bare-legs"/>
+    <tei:note type="gender-markers" subtype="horse_race_fixer" ana="#kerry_cap #jacket #pants"/>
+    <tei:note type="gender-markers" subtype="policeman" ana="#uniform-police"/>
+    <tei:note type="uniforms" subtype="crime-fighting_hero"/>
+    <tei:note type="uniforms" subtype="police"/>
+    <tei:note type="transportation-tech" subtype="automobile"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#policeman">YOU DID IT AGAIN, PHANTOM LADY!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#phantom_lady">SEE YOU SOME MORE, BOYS I'VE GOT TO MAKE A QUICK CHANGE!</cbml:balloon>
+    <cbml:caption>ON THE ARRIVAL OF THE POLICE, ORDER IS RESTORED...</cbml:caption>
+  </cbml:panel>
+  <cbml:panel n="2.10.5" ana="#scene-to-scene" characters="#don_borden #sandra_knight">
+    <tei:note resp="#SWH" type="panelDesc">SK, dressed again in her fancy green  outfit, with one hand on hip and the other gesturing, faces the silhouette of Don holding Sugar Girl's reins.</tei:note>
+    <tei:note type="gender-markers" subtype="sandra_knight" ana="#long-hair #lipstick #prominent-eyelashes #prominent-breasts #dress #dress-hat #dress-gloves #bare-legs #high-heeled-shoes"/>
+    <tei:note type="gender-markers" subtype="don_borden" ana="#short-hair"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#don_borden">SANDRA I'VE BEEN LOOKING EVERY WHERE FOR YOU! PHANTOM LADY FIXED EVERYTHING ... AND LOOK! SUGAR GIRL WAS ONLY STUNNED!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sandra_knight">WONDERFUL! BUT WE'RE STILL BROKE!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#thought" who="#sandra_knight">COULD BE WORSE OFF, THOUGH!</cbml:balloon>
+    <cbml:caption>AND...</cbml:caption>
+    <tei:fw place="end" type="text" rendition="#cursive">The End</tei:fw>
+  </cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="3.1">
+  <cbml:panel n="3.1.1" type="title" characters="#evelyn_ellis #tony #frankie #pete #anonymous_man #anonymous_woman #phantom_lady">
+    <tei:head>
+      <tei:emph>EVELYN ELLIS <tei:lb/>
+                        </tei:emph>QUEEN OF GANGSTERS
+    </tei:head>
+    <tei:note resp="#SWH" type="panelDesc">Phantom Lady's disembodied head provides narrative for a tableau of smiling Evelyn Ellis and her gang menacing a group of men and women with drawn weapons</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#prominent-breasts #dress #long-hair #mink-coat #necklace #earring #dress-gloves #high-heeled-shoes"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#narration" who="#phantom_lady">HELLO AGAIN! AS I PROMISED LAST MONTH I'M BACK WITH ANOTHER CASE FROM POLICE FILES, A TRUE CRIME STORY, THIS TIME I'VE CHOSEN EVELYN ELLIS, THE GIRL WHO REMADE A GANG OF TWO-BIT CROOKS INTO A HIGH POWERED MOB OF DANGEROUS KILLERS. AS PHANTOM LADY LET ME ESCORT YOU AS WE LOOK IN ON THE GANG EARLY IN 1937...</cbml:balloon>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #necktie #suit #wingtips"/>
+    <tei:note type="weapon-tech" subtype="machine-gun"/>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #necktie #suit #wingtips #fedora"/>
+    <tei:note type="gender-markers" subtype="joe" ana="#short-hair #suit #fedora"/>
+    <tei:note type="gender-markers" subtype="anonymous_man" ana="#suit #short-hair #male-pattern-baldness #necktie #wingtips"/>
+    <tei:note type="gender-markers" subtype="anonymous_woman" ana="#dress #long-hair"/>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #lipstick #prominent-eyelashes"/>
+  </cbml:panel>
+  <cbml:panel n="3.1.2" ana="#scene-to-scene" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">Phantom Lady's disembodied head provides narrative.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #lipstick #prominent-eyelashes"/>
+    <cbml:balloon type="speech" ana="#narration" who="#phantom_lady">ALL READY? LET'S GO TO THE SLUM DISTRICT OF SAN FRANCISCO AS FRANK ELLIS INTRODUCES HIS NEW WIFE TO HIS GANG...</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.1.3" ana="#scene-to-scene" characters="#evelyn_ellis #pete #tony #frankie">
+    <tei:note resp="#SWH" type="panelDesc">Evelyn Ellis is introduced to the card-playing seated gang members by her husband, Frankie.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#prominent-breasts #dress #long-hair #mink-coat #necklace #dress-gloves"/>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #necktie #suit"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#tony">HEY LOOK, IT'S FRANKIE ! WHERE YA BEEN THE LAST WEEK, PAL?</cbml:balloon>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #necktie #suit #fedora"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#pete">YEAH AND WHOSE THE BROAD?</cbml:balloon>
+    <tei:note type="gender-markers" subtype="pete" ana="#short-hair #suit #necktie"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#frankie">HI, BOYS. I BEEN GETTIN HITCHED. MEET THE WIFE! EVELYN, MEET THE BOYS!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.1.4" ana="#action-to-action" characters="#evelyn_ellis #frankie #tony">
+    <tei:note resp="#SWH" type="panelDesc">Evelyn gestures with her hand confidently towards the seated gang members</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#prominent-breasts #dress #long-hair #mink-coat #necklace #dress-gloves"/>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #necktie #suit #fedora"/>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #necktie #suit"/>
+  </cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="3.2">
+  <cbml:panel n="3.2.1" ana="#action-to-action" characters="#evelyn_ellis #frankie #tony">
+    <tei:note resp="#SWH" type="panelDesc">Evelyn snatches angrily at Tony's face.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #dress-gloves #lipstick"/>
+    <cbml:balloon type="speech" ana="#command" who="#evelyn_ellis">SIT DOWN CHOWDER HEAD BEFORE I SCRATCH THOSE SQUINTY EYES OUT OF THAT THICK HEAD!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #necktie #suit #fedora"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#frankie">GOSH EVELYN..ER.. TAKE IT EASY WILL YA?</cbml:balloon>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #necktie #suit"/>
+    <cbml:balloon type="speech" ana="#interjection" who="#tony">YIII!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.2.2" ana="#action-to-action" characters="#evelyn_ellis #frankie #tony">
+    <tei:note resp="#SWH" type="panelDesc">Tony pulls a pistol on Evelyn as Frankie looks on.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #earring #lipstick"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#tony">NO DAME IS GONNA SNATCH AT MY FACE AND GET AWAY WITH IT! SAY YOUR PRAYERS, SISTER, YOU AIN'T GOT LONG TA LIVE!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #necktie #suit #fedora"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#frankie">NO TONY, YOU LISTEN!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #necktie #suit"/>
+    <cbml:balloon type="speech" ana="#command" who="#evelyn_ellis">SHUT UP, FRANKIE. I DARE YOU TO PULL THAT TRIGGER! YOU HAVEN'T THE GUTS, YA CHEAP PHONEY! GO ON SHOOT!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.2.3" ana="#action-to-action" characters="#evelyn_ellis #tony #joe #frankie">
+    <tei:note resp="#SWH" type="panelDesc">Evelyn talks down Tony as the other gang members look on.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #earring #lipstick"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#tony">AW, I CAN'T PLUG NO WOMEN!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #necktie #suit #fedora"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#evelyn_ellis">OKAY, NOW THAT'S SETTLED.  SIT DOWN AND I'LL TELL YA WHAT I GOT ON MY MIND. I GOTTA KNOW ONE THING FIRST. ARE YA WITH ME?</cbml:balloon>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #necktie #suit"/>
+    <tei:note type="gender-markers" subtype="joe" ana="#short-hair #suit #fedora"/>
+  </cbml:panel>
+  <cbml:panel n="3.2.4" ana="#action-to-action" characters="#evelyn_ellis #joe #tony #pete">
+    <tei:note resp="#SWH" type="panelDesc">Evelyn sits on the table, legs prominently displayed, while speaking with the gang members</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #earring #dress-gloves #bare-legs #high-heeled-shoes"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#tony">SURE THING BABY, WITH GUTS LIKE THAT YOU'RE OKAY FOR MY DOUGH!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #necktie #suit"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#joe">YEAH, ME TOO.  FRANKIE DONE ALL RIGHT, HUH TONY?</cbml:balloon>
+    <tei:note type="gender-markers" subtype="joe" ana="#short-hair #suit #fedora"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#pete">HE SURE DID. COUNT ME IN.</cbml:balloon>
+    <tei:note type="gender-markers" subtype="pete" ana="#short-hair #suit #necktie"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#evelyn_ellis">OKAY, THEN LISTEN.</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.2.5" ana="#action-to-action" characters="#evelyn_ellis #joe #tony #pete">
+    <tei:note resp="#SWH" type="panelDesc">Evelyn lectures the gang with a gloved finger.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #earring #dress-gloves #bare-legs #high-heeled-shoes #lipstick"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#evelyn_ellis">THE JOB I GOT IN MIND IS WORTH SEVENTY FIVE GRAND! WE'RE GONNA KNOCK OFF THE UNION PACIFIC EXPRESS. THEY CARRY MORE REGISTERED MAIL THAN THE POST OFFICE AND BEFORE YA OPEN YA YAPS, IT AIN'T AS HARD AS YA THINK .... </cbml:balloon>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #necktie #suit"/>
+    <tei:note type="gender-markers" subtype="joe" ana="#short-hair #suit #fedora"/>
+    <tei:note type="gender-markers" subtype="pete" ana="#short-hair #suit #necktie"/>
+  </cbml:panel>
+  <cbml:panel n="3.2.6" ana="#scene-to-scene" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">Phantom Lady's disembodied head provides narrative.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #lipstick #prominent-eyelashes"/>
+    <cbml:balloon type="speech" ana="#narration" who="#phantom_lady">LITTLE EVELYN RULED WITH AN IRON HAND AND WITHIN A WEEK SHE HAD THE GANG WHIPPED INTO SHAPE EACH ONE'S PART REHEARSED PERFECTLY. SEE THERE THEY GO INTO THE STATION AT McAVOY. LET'S FOLLOW ....</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.2.7" ana="#scene-to-scene" characters="#evelyn_ellis #frankie #trainman">
+    <tei:note resp="#SWH" type="panelDesc">Evelyn threatens a seated trainman with a pistol while Frankie backs up her command.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #dress-gloves"/>
+    <cbml:balloon type="speech" ana="#command" who="#evelyn_ellis">GET OUT OF THE CHAIR POP BEFORE IT BECOMES YA PERMANENT RESTING PLACE!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #suit #fedora"/>
+    <tei:note type="uniforms" subtype="train_agent"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#trainman">WHA... WHAT DO YOU WANT?</cbml:balloon>
+    <tei:note type="gender-markers" subtype="trainman" ana="#short-hair #train-agent-hat"/>
+    <cbml:balloon type="speech" ana="#command" who="#frankie">YOU HEARD HER, GET UP! </cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.2.8" ana="#action-to-action" characters="#evelyn_ellis #trainman">
+    <tei:note resp="#SWH" type="panelDesc">Evelyn pistol-whips the seated trainman as another one expresses alarm.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #dress-gloves #necklace"/>
+    <cbml:balloon type="speech" ana="#interjection" who="#trainman">OHH!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="trainman" ana="#short-hair #train-agent-hat"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#evelyn_ellis">SORRY POP, WE  AIN'T  AIMIN' TO BE INTERRUPTED! </cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#trainman">WHAT'S GOING ON HERE --- HEY!</cbml:balloon>
+  </cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="3.3">
+  <cbml:panel n="3.3.1" ana="#action-to-action" characters="#evelyn_ellis #frankie #tony #trainman">
+    <tei:note resp="#SWH" type="panelDesc">The protesting trainman is held by Tony and Frankie, while Evelyn raps out orders.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #dress-gloves"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#trainman">YOU DIRTY RATS! HE COULDN'T EVEN HURT A FLEA!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #suit #fedora"/>
+    <cbml:balloon type="speech" ana="#command" who="#evelyn_ellis">SHUT THAT TRAP, WISE GUY, OR I'LL DO IT FOR YA! I BETTER LET HIM HAVE A LUMP TOO, WE CAN'T TAKE ANY CHANCES.</cbml:balloon>
+    <tei:note type="gender-markers" subtype="trainman" ana="#short-hair #train-agent-hat"/>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #necktie #suit #waistcoat"/>
+  </cbml:panel>
+  <cbml:panel n="3.3.2" ana="#action-to-action" characters="#evelyn_ellis #frankie #trainman">
+    <tei:note resp="#SWH" type="panelDesc">Evelyn knocks the second trainman out with her pistol, red stars and a splat mark the blow.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #dress-gloves"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#trainman">LET ME GO, YOU ..UGHH!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #suit #fedora"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#evelyn_ellis">I HOPE YOU GOT A HARD HEAD, STUPID.  I DON'T WANT TO KNOCK YOUR BRAINS OUT. YOU GOT LITTLE ENOUGH AS IT IS!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="trainman" ana="#short-hair #train-agent-hat"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#frankie">HA HA! YOU KILL ME BABY WHAT A SENSE OF HUMOR!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #necktie #suit"/>
+  </cbml:panel>
+  <cbml:panel n="3.3.3" ana="#action-to-action" characters="#evelyn_ellis #joe #trainman">
+    <tei:note resp="#SWH" type="panelDesc">Evelyn, gesturing with pistol in hand, directs Joe [Tony] to drag the unconscious trainman's body away.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #dress-gloves #necklace #bare-legs #earring"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#command" who="#evelyn_ellis">THROW THEM INTO THE TICKET BOOTH WATCH THEM EVERY SECOND, JOE, AND IF THEY EVEN STRETCH, LET THEM HAVE IT, GET ME?</cbml:balloon>
+    <tei:note type="gender-markers" subtype="frankie" ana="#fedora"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#tony">DON'T WORRY, EVELYN, THEM GUYS WON'T EVEN BLINK!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="trainman" ana="#short-hair #train-agent-hat"/>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #necktie #suit #waistcoat"/>
+  </cbml:panel>
+  <cbml:panel n="3.3.4" ana="#subject-to-subject" characters="#evelyn_ellis #frankie">
+    <tei:note resp="#SWH" type="panelDesc">Evelyn talks to Frankie as he dons a trainman's hat.  The train is seen approaching through the station window.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #dress-gloves #necklace #earring #prominent-eyelashes #lipstick"/>
+    <cbml:balloon type="speech" ana="#command" who="#evelyn_ellis">YA HEAR THAT,  SHES COMING! GET THAT HAT ON, FRANK AND GET GOING. IF ANY THING GOES WRONG, I'LL WRING YA NECK.</cbml:balloon>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #train-agent-hat"/>
+  </cbml:panel>
+  <cbml:panel n="3.3.5" ana="#subject-to-subject" characters="#frankie #train_engineer #trainman">
+    <tei:note resp="#SWH" type="panelDesc">Frankie stands on the train platform as the trainmen, unseen, discuss the novelty of a new agent.</tei:note>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #train-agent-hat"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#train_engineer">HEY, SMOKY, WHERE'S THE OLD MAN? HE HASN'T MISSED A TRAIN IN TEN YEARS.</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#trainman">YEAH, WAIT THERE'S SOMEBODY COMING OUT NOW. LOOKS LIKE A NEW AGENT! WONDER WHAT HAPPENED?</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.3.6" ana="#action-to-action" characters="#frankie #train_engineer">
+    <tei:note resp="#SWH" type="panelDesc">Frankie, in disguise, attempts to allay the train engineer's suspicions.</tei:note>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #train-agent-hat"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#frankie">YEAH WE HAD TO TAKE HIM TO THE HOSPITAL I GOT SOME ORDERS FOR YA!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="train_engineer" ana="#short-hair"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#train_engineer">HEY WHAT'S WRONG WITH POP? HE SICK OR SOMETHING? </cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.3.7" ana="#action-to-action" characters="#frankie #train_engineer">
+    <tei:note resp="#SWH" type="panelDesc">Frankie pulls a gun on the engineer in the locomotive cabin, while another gunman emerges from the station.</tei:note>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #train-agent-hat"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#train_engineer">OKAY, HAND THEM OVER,  WE HAVEN'T MUCH TIME---HEY!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="train_engineer" ana="#short-hair"/>
+    <cbml:balloon type="speech" ana="#command" who="#frankie">GET 'EM UP FAST IF YA WANT TO LEAVE AT ALL! AND KEEP YA MITTS OFF THEM CONTROLS!</cbml:balloon>
+  </cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="3.4">
+  <cbml:panel n="3.4.1" ana="#subject-to-subject" characters="#evelyn_ellis #pete #trainman">
+    <tei:note resp="#SWH" type="panelDesc">Evelyn and Pete wave their guns at a trainman heaving large sacks marked "MAIL".</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #dress-gloves  #earring #lipstick"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#command" who="#evelyn_ellis">DROP THAT SACK AND HOP OUT OF THAT CAR. I GOT ITCHY FINGERS SO GET MOVIN!!!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="pete" ana="#short-hair"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#trainman">OKAY, LADY I GET YA! </cbml:balloon>
+    <tei:note type="gender-markers" subtype="trainman" ana="#short-hair #train-agent-hat #bib-overalls"/>
+  </cbml:panel>
+  <cbml:panel n="3.4.2" ana="#action-to-action" characters="#evelyn_ellis #pete #trainman">
+    <tei:note resp="#SWH" type="panelDesc">A trainman tries to close the train-car door. Evelyn orders Pete to shoot him.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #dress-gloves #earring"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#command" who="#evelyn_ellis">STOP HIM! LET HIM HAVE IT! OOOF!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="pete" ana="#short-hair #suit #necktie #fedora"/>
+    <cbml:balloon type="speech" ana="#command" who="#trainman">GET THE DOOR, PETE, QUICK!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#command" who="#pete">GET AWAY FROM THAT DOOR!!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.4.3" ana="#action-to-action" characters="#evelyn_ellis #pete #trainman">
+    <tei:note resp="#SWH" type="panelDesc">One trainman is shot as the other one raises his hands in surrender.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #dress-gloves #earring #lipstick"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#evelyn_ellis">I OUGHTTA PUT HOT LEAD THROUGH THAT FAT BELLY. GET DOWN OUTTA THERE BEFORE I LOSE MY SELF CONTROL.</cbml:balloon>
+    <tei:note type="gender-markers" subtype="pete" ana="#short-hair #suit #necktie #fedora"/>
+    <cbml:balloon type="speech" ana="#interjection" who="#trainman">EEEYAH!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="trainman" ana="#short-hair #train-agent-hat #bib-overalls #shirt"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#command" who="#pete">MOVE! WE MEAN BUSINESS!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#trainman">I'M COMING I'M COMING! DON'T SHOOT! </cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.4.4" ana="#action-to-action" characters="#tony #evelyn_ellis #trainman">
+    <tei:note resp="#SWH" type="panelDesc">Evelyn points her pistol at the trainman with hands raised, while her gang work in the boxcar cabin.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #dress-gloves #earring"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#command" who="#evelyn_ellis">MAKE IT FAST, YOU GUYS! AFTER THAT SHOT THERE'S NO TELLING WHAT'LL HAPPEN. GET THE REGISTERED SACKS AND NOTHIN' ELSE.</cbml:balloon>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #necktie #suit"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#tony">OKAY, BABY COME ON TONY! </cbml:balloon>
+    <tei:note type="gender-markers" subtype="trainman" ana="#short-hair #train-agent-hat #bib-overalls #shirt"/>
+  </cbml:panel>
+  <cbml:panel n="3.4.5" ana="#action-to-action" characters="#evelyn_ellis #trainman #pete">
+    <tei:note resp="#SWH" type="panelDesc">Evelyn forces her captive to crawl while coaxing more speed out of her gang members.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #dress-gloves #earring #necklace"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#command" who="#evelyn_ellis">GET DOWN ON YA BELLY YA FAT WORM, AND LET'S SEE YA CRAWL... HURRY IT UP IN THERE.  YA WANTA SPEND THE NIGHT IN THE JUG?</cbml:balloon>
+    <tei:note type="gender-markers" subtype="trainman" ana="#short-hair #train-agent-hat #bib-overalls #shirt"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#pete">TAKE IT EASY WILL YA, WE'RE WORKIN, AS FAST AS WE JUG? [sic]</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.4.6" ana="#action-to-action" characters="#frankie #evelyn_ellis #trainman #tony">
+    <tei:note resp="#SWH" type="panelDesc">Frankie loads the mail sacks into their car while Evelyn holds her hostage at gunpoint.</tei:note>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #suit"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <tei:note type="transportation-tech" subtype="automobile"/>
+    <cbml:balloon type="speech" ana="#command" who="#tony">HEY, EVVIE, COME ON, WE'RE READY! CALL FRANK.</cbml:balloon>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #dress-gloves #earring #necklace"/>
+    <cbml:balloon type="speech" ana="#command" who="#evelyn_ellis">KEEP YA NOSE IN THE DIRT, BIG BOY IF YA DON'T WANT A HOLE IN YA HEAD .... FRANK COME ON!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #train-agent-hat"/>
+  </cbml:panel>
+  <cbml:panel n="3.4.7" ana="#action-to-action" characters="#frankie #evelyn_ellis #trainman">
+    <tei:note resp="#SWH" type="panelDesc">Evelyn, gun in hand, moves away from the train with Frankie while the trainman calls for help.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #prominent-breasts #long-hair #mink-coat #dress-gloves #earring #necklace"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#trainman">HELP! ROBBERS! HELP!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #train-agent-hat"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#frankie">I SHOULD OF KNOCKED HIS BRAINS OUT! LISTEN TO THE LOUD MOUTH!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#evelyn_ellis">AW, FORGET IT.  WE GOT WHAT WE WAS AFTER DIDN'T WE? </cbml:balloon>
+  </cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="3.5">
+  <cbml:panel n="3.5.1" ana="#scene-to-scene" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">Phantom Lady's disembodied head provides narrative.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #lipstick #prominent-eyelashes"/>
+    <cbml:balloon type="speech" ana="#narration" who="#phantom_lady">THEY GOT AWAY WITHOUT LEAVING A CLUE AND SPLIT $67,OOO. EVELYN WAS IN HER GLORY. IN NO TIME SHE HAD PLANS FOR ANOTHER JOB, THIS TIME THE PINOLE BANK AT RODEO, CALIFORNIA..</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.5.2" ana="#scene-to-scene" characters="#tony #frankie #evelyn_ellis">
+    <tei:note resp="#SWH" type="panelDesc">Frankie and Evelyn talk in front of a building with an ornate sign, while other gang members handle weapons near their car.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #dress-gloves #necklace"/>
+    <tei:note type="weapon-tech" subtype="machine-gun"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#evelyn_ellis">COME, ON, LET'S GET IT OVER WITH. ARE WE GONNA HANG AROUND HERE ALL DAY? LET'S GO!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #suit #fedora #necktie"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#evelyn_ellis">WHAT'S THE MATTER, FRANKIE? LOSIN' YA NERVE? TAKE IT EASY , BOY, AND WE WON'T HAVE TROUBLE.  I GOT THIS PLANNED RIGHT.</cbml:balloon>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #suit"/>
+  </cbml:panel>
+  <cbml:panel n="3.5.3" ana="#subject-to-subject" characters="#frankie #evelyn_ellis #tony">
+    <tei:note resp="#SWH" type="panelDesc">Inside the bank, Tony points his Thompson automatic menacingly while Evelyn and Frankie move toward the tellers' windows.</tei:note>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #suit #necktie"/>
+    <tei:note type="weapon-tech" subtype="machine-gun"/>
+    <cbml:balloon type="speech" ana="#command" who="#tony">DON'T MOVE, YOKELS, IF YA WANT TO KEEP LIVIN'!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #dress-gloves #earring"/>
+    <cbml:balloon type="speech" ana="#command" who="#evelyn_ellis">FRANK, GET OVER TO THAT CAGE AND FILL THAT SACK.</cbml:balloon>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #suit #fedora #necktie"/>
+  </cbml:panel>
+  <cbml:panel n="3.5.4" ana="#action-to-action" characters="#frankie #bank_teller #evelyn_ellis">
+    <tei:note resp="#SWH" type="panelDesc">Frankie points a gun at the bank-teller's nose, who, perspiring, shoves a wad of money into his hand.  Evelyn, in the background, cows the bank customers.</tei:note>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #suit #fedora #necktie"/>
+    <tei:note type="weapon-tech" subtype="machine-gun"/>
+    <cbml:balloon type="speech" ana="#command" who="#frankie">GET IT OUT OR I'LL DRILL YA!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="bank_teller" ana="#short-hair #bowtie"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#bank_teller">Y... YES SIR!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#long-hair #mink-coat #dress-gloves"/>
+    <cbml:balloon type="speech" ana="#interjection" who="#anonymous_woman">EEEE!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#command" who="#evelyn_ellis">CAN THAT NOISE LADY, OR YOU'LL WISH YOU HAD ! </cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.5.5" ana="#subject-to-subject" characters="#frankie #evelyn_ellis">
+    <tei:note resp="#SWH" type="panelDesc">Frankie, large valise in one hand, and Evelyn, both with drawn weapons, back out of the bank entrance.  A car sounds a siren.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#long-hair #mink-coat"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <tei:note type="transportation-tech" subtype="automobile"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#evelyn_ellis">YOU GOT EVERYTHING, FRANKIE, YOU... THE HORN! SOMEBODY'S COMING, LET'S BEAT IT! </cbml:balloon>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #suit #fedora #necktie"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#frankie">I KNEW THIS WOULD HAPPEN!! COME ON!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.5.6" ana="#action-to-action" characters="#evelyn_ellis #sheriff #frankie">
+    <tei:note resp="#SWH" type="panelDesc">With a gigantic yellow moon rising in the background, Evelyn guns down the sheriff.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #dress-gloves #earring"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#command" who="#sheriff">STOP, YOU THIEVING RATS! STOP OR ...AAAGH! </cbml:balloon>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #suit #fedora #necktie"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#evelyn_ellis">NO TIN HORN SHERIFF IS STOPPING US! </cbml:balloon>
+    <tei:note type="gender-markers" subtype="sheriff" ana="#short-hair #suit"/>
+    <cbml:balloon type="speech" ana="#command" who="#frankie">COME ON, GET IN THE CAR, WILL YA, EVELYN. COME ON!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.5.7" ana="#action-to-action" characters="#tony #sheriff #evelyn_ellis">
+    <tei:note resp="#SWH" type="panelDesc">Evelyn directs Tony to kill the wounded sheriff, slumped in the street.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #dress-gloves #earring #high-heeled-shoes"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sheriff">HELP! I'LL GET YOU, YOU MURDEROUS SCUM... OHHH! IF I... HUH!.....</cbml:balloon>
+    <tei:note type="gender-markers" subtype="sheriff" ana="#short-hair #suit"/>
+    <tei:note type="weapon-tech" subtype="machine-gun"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#evelyn_ellis">TONY, PUT THAT LOUSY COPPER OUT OF HIS MISERY! I MUST BE GETTING' CHICKEN HEARTED I CAN'T EVEN SEE ONE OF THEM RATS SUFFER. </cbml:balloon>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #suit"/>
+  </cbml:panel>
+  <cbml:panel n="3.5.8" ana="#action-to-action" characters="#tony #sheriff">
+    <tei:note resp="#SWH" type="panelDesc">An animated headshot of Tony as he fires his machine-gun at the wounded sheriff.</tei:note>
+    <tei:note type="gender-markers" subtype="sheriff" ana="#short-hair #suit"/>
+    <tei:note type="weapon-tech" subtype="machine-gun"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#tony">SO LONG, SHERIFF ITS BEEN NICE KNOWIN' YA. GIVE OUR REGARDS TO ST. PETER ! </cbml:balloon>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #suit #necktie"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#sheriff">NO! NO! AAAGH!</cbml:balloon>
+  </cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="3.6">
+  <cbml:panel n="3.6.1" ana="#subject-to-subject" characters="#evelyn_ellis #frankie #joe">
+    <tei:note resp="#SWH" type="panelDesc">Evelyn and Frankie talk animatedly in the backseat of their getaway car, while Joe gazes at them through the rearview mirror in the driver's seat.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #dress-gloves #earring #prominent-breasts"/>
+    <tei:note type="transportation-tech" subtype="automobile"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#evelyn_ellis">I'LL BET WE GOT TWENTY GRAND OUT OF THIS HAUL. I'LL MAKE BIG TIMERS OUT OF YOU CRUMBS YET.</cbml:balloon>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #suit #fedora #necktie"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#frankie"> YEAH AND WE KNOCKED OFF THE GUY.  YA CAN GET THE GAS CHAMBER FOR THAT.  I DON'T WANT TA FIND MYSELF IN NO HOT SEAT, CHOKIN' TO DEATH.</cbml:balloon>
+    <tei:note type="gender-markers" subtype="joe" ana="#fedora #suit #necktie"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#joe">AW, SHUT UP.  YOU GIMME THE CREEPS!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.6.2" ana="#scene-to-scene" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">Phantom Lady's disembodied head provides narrative.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #lipstick #prominent-eyelashes"/>
+    <cbml:balloon type="speech" ana="#narration" who="#phantom_lady">AFTER THE BANK JOB EVELYN AND THE GANG LAID LOW FOR SEVERAL MONTHS, BUT SOON THE URGE FOR NEW TRIUMPHS HAD LITTLE EVVIE SCHEMING AGAIN, .. THIS TIME IT WAS $50,000 IN PAYROLL SHIPMENTS TO THE EAST. HER INFO CAME FROM A CORRUPT STATION AGENT. </cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.6.3" ana="#scene-to-scene" characters="#evelyn_ellis #corrupt_station_agent">
+    <tei:note resp="#SWH" type="panelDesc">Portrait shot of Evelyn speaking with the "corrupt station agent".</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #necklace #prominent-breasts #prominent-eyelashes #lipstick"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#evelyn_ellis">IT MUST BE INTERESTING WORKING AROUND TRAINS. THEY ALWAYS MAKE ME WONDER WHAT THEY CARRY AS THEY CHUG OUT OF THE CITY.</cbml:balloon>
+    <tei:note type="gender-markers" subtype="corrupt_station_agent" ana="#train-agent-hat #short-hair"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#corrupt_station_agent">YOU'D BE SURPRISED, MISS. THAT ONE OVER THERE CARRIES OVER $50,000 IN CASH EVERY WEEK.  THAT'S QUITE A CHUNK.</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.6.4" ana="#action-to-action" characters="#evelyn_ellis #corrupt_station_agent">
+    <tei:note resp="#SWH" type="panelDesc">Similar shot, showing more of the station agent.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #dress-gloves #earring #necklace #prominent-breasts #prominent-eyelashes #lipstick"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#evelyn_ellis">GRACIOUS! I GUESS THEY GUARD IT WITH THEIR LIVES! </cbml:balloon>
+    <tei:note type="gender-markers" subtype="corrupt_station_agent" ana="#train-agent-hat #short-hair"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#corrupt_station_agent">NO MORE THAN USUAL.  ANY SMART CROOK COULD GET A CRACK AT IT. BUT, IF IT WAS UP TO ME... I'M ONLY THE AGENT WHAT AM I WORRYING ABOUT?</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.6.5" ana="#action-to-action" characters="#evelyn_ellis #corrupt_station_agent">
+    <tei:note resp="#SWH" type="panelDesc">Similar shot, this time with Evelyn's hand on the door, the station agent gesturing with his hands.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #dress-gloves #earring"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#evelyn_ellis">WELL, I MUST BE GOING.  YOU RAILROAD MEN ARE JUST TOO FASCINATING.  GOODBYEE!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="corrupt_station_agent" ana="#train-agent-hat #short-hair"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#corrupt_station_agent">AW, YOU'RE JUST RUBBING [sic] ME GOODBY, SEE YOU AGAIN SOME TIME.</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.6.6" ana="#scene-to-scene" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">Phantom Lady's disembodied head provides narrative.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #lipstick #prominent-eyelashes"/>
+    <cbml:balloon type="speech" ana="#narration" who="#phantom_lady">WITH THE INFORMATION SHE WORMED OUT OF THE AGENT EVELYN WAS ABLE TO PLAN THE MOST DARING OF ALL THE GANG'S JOBS A FEW LATER THEY WERE READY...</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.6.7" ana="#scene-to-scene" characters="#evelyn_ellis #frankie #joe">
+    <tei:note resp="#SWH" type="panelDesc">Evelyn, sitting on a table, addresses Frankie who is wearing a trainman's outfit, with another gang member similarly attired, but head in shadow.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#dress #long-hair #mink-coat #dress-gloves #earring"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#evelyn_ellis">NOW YOU KNOW WHAT TO DO.  YOU GET ON THE TRAIN AND HAVE THEM STOP AT NOBEL.  WE'LL BE WAITIN' FOR YA.</cbml:balloon>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #train-agent-hat #bib-overalls #shirt"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#joe">YA BETTER BE SURE YA GET 'EM STOPPED, FRANKIE, OR YA'LL END UP IN CHICAGO.</cbml:balloon>
+    <tei:note type="gender-markers" subtype="joe" ana="#train-agent-hat #bib-overalls #shirt"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#frankie">DON'T WORRY KID, WE'LL BE THERE ON THE NOSE, PACIFIC TIME.</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.6.8" ana="#subject-to-subject" characters="#frankie #trainman">
+    <tei:note resp="#SWH" type="panelDesc">At the train, Frankie is boarding the tender while two real trainmen discuss the novelty of the situation.</tei:note>
+    <tei:note type="gender-markers" subtype="trainman" ana="#short-hair #train-agent-hat"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#trainman">WHO'S THAT GUY CLIMBING ON THE TENDER?</cbml:balloon>
+    <cbml:caption>AT THE STATION ONE HOUR LATER...</cbml:caption>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #train-agent-hat #bib-overalls #shirt"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#trainman">SEARCH ME, LOOKS LIKE ONE OF THE CREW. YOU'RE NOT WORRIED ABOUT  BANDITS, ARE YOU? THAT GUY WOULDNT GET TO FIRST BASE.</cbml:balloon>
+  </cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="3.7">
+  <cbml:panel n="3.7.1" ana="#subject-to-subject" characters="#frankie #trainman #train_engineer">
+    <tei:note resp="#SWH" type="panelDesc">Frankie, crouching on the coal heaped up in the tender, points a pistol at the train engineer and another trainman.</tei:note>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #train-agent-hat #bib-overalls #shirt"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#command" who="#frankie">ALL RIGHT YOU MONKEYS UP WITH YOUR HANDS AND NO FUNNY MOVES! I WANT YOU TO STOP THIS TRAIN AT NOBEL.</cbml:balloon>
+    <cbml:caption>LATER NEAR NOBEL A WAY STOP NEAR SAN FRANCISCO...</cbml:caption>
+    <tei:note type="gender-markers" subtype="trainman" ana="#short-hair #train-agent-hat #bib-overalls #shirt"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#train_engineer">ARE YOU NUTS BROTHER? THIS TRAIN RUNS ON A SPLIT SECOND SCHEDULE. WE COULDN'T DO THAT! </cbml:balloon>
+    <tei:note type="gender-markers" subtype="trainman" ana="#short-hair #train-agent-hat #bib-overalls #shirt"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#trainman">WHERE DID HE COME FROM? </cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.7.2" ana="#action-to-action" characters="#frankie #trainman #train_engineer">
+    <tei:note resp="#SWH" type="panelDesc">Frankie threatens the trainmen in the boxcar.</tei:note>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #train-agent-hat #bib-overalls #shirt"/>
+    <tei:note type="panel-transitions" ana="#action-to-action"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#frankie">YOU HEARD ME, I MEAN BUSINESS PAL, IF YOU WANT TO GET ANYWHERE AT ALL, YOU BETTER STOP AT NOBEL LIKE I SAID.</cbml:balloon>
+    <tei:note type="gender-markers" subtype="trainman" ana="#short-hair #train-agent-hat #bib-overalls #shirt"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#train_engineer">HEY... OKAY..I AIN'T ARGUING WITH ANY GUNS! THEY DIDN'T PAY ME FOR THAT! </cbml:balloon>
+    <tei:note type="gender-markers" subtype="trainman" ana="#short-hair #train-agent-hat #bib-overalls #shirt"/>
+  </cbml:panel>
+  <cbml:panel n="3.7.3" ana="#subject-to-subject" characters="#evelyn_ellis #tony">
+    <tei:note resp="#SWH" type="panelDesc">Evelyn and Tony talk outside one of the motionless train boxcars.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#long-hair #mink-coat #necklace #earring #lipstick #prominent-eyelashes"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#evelyn_ellis">LOOKS LIKE FRANKIE MADE IT ON TIME.  I ALWAYS SAID HE SHOULD WORK ON A RAILROAD.</cbml:balloon>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #suit"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#tony">HEY, EVVIE, THE CAR DOORS ARE LOCKED. I DON'T LIKE THIS.</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.7.4" ana="#action-to-action" characters="#evelyn_ellis #tony #joe">
+    <tei:note resp="#SWH" type="panelDesc">Tony points his Tommie-gun at the boxcar door while Evelyn and Joe watch.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#long-hair #mink-coat"/>
+    <tei:note type="panel-transitions" ana="#action-to-action"/>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #suit"/>
+    <tei:note type="weapon-tech" subtype="machine-gun"/>
+    <cbml:balloon type="speech" ana="#command" who="#evelyn_ellis">OPEN THEM DOORS AND MAKE IT FAST.  IF THEY AIN'T SLIDIN' IN TWO SECONDS, WE'LL... EEEE! WHY THEM! TONY. LET 'EM HAVE IT!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="joe" ana="#fedora #necktie #suit #shirt"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#tony">GOTCHA, KID!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.7.5" ana="#action-to-action" characters="#evelyn_ellis #tony #joe">
+    <tei:note resp="#SWH" type="panelDesc">Tableau of Evelyn, Tony and Joe firing their weapons, with a white/green/yellow bull's eye design in back.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#long-hair #mink-coat #dress-gloves"/>
+    <tei:note type="weapon-tech" subtype="machine-gun"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#evelyn_ellis">I DON'T CARE IF THEY'RE IN PIECES! GET THAT DOOR OPEN!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #suit"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#trainman">WE GIVE UP! STOP THAT FIRING AND WE'LL OPEN UP!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="joe" ana="#fedora #necktie #suit #shirt"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#joe">IF THEY DON'T COME OUT AFTER THIS, YOU DON'T HAVE TO WORRY THEY'LL BE DEAD. </cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.7.6" ana="#action-to-action" characters="#tony #evelyn_ellis #trainman">
+    <tei:note resp="#SWH" type="panelDesc">Evelyn directs the action as Tony hefts his machine gun, two trainmen in back with upraised hands.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#long-hair #mink-coat #earring #lipstick #prominent-eyelashes"/>
+    <tei:note type="weapon-tech" subtype="machine-gun"/>
+    <cbml:balloon type="speech" ana="#command" who="#evelyn_ellis">GET THOSE SACKS OUT. BOYS, IN TEN MINUTES EVERY DICK IN THE COUNTRY WILL BE SWARMIN' ALL OVER THE PLACE... JOE WATCH THESE MUGS!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #suit"/>
+    <tei:note type="gender-markers" subtype="trainman" ana="#short-hair #train-agent-hat #bib-overalls #shirt"/>
+  </cbml:panel>
+  <cbml:panel n="3.7.7" ana="#subject-to-subject" characters="#tony #joe #frankie #evelyn_ellis #trainman">
+    <tei:note resp="#SWH" type="panelDesc">In a different part of the train, Tony and Joe unload the mail sacks while Evelyn and Frankie converse.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#long-hair #mink-coat #dress-gloves #earring #lipstick #prominent-eyelashes"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#evelyn_ellis">NICE WORK, SWEETY, YOU WERE ON THE SECOND!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #train-agent-hat #bib-overalls #shirt"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#frankie">IT WAS A CINCH, KID, NOT EVEN BACK TALK..GET OVER BY THEM CLERKS AND KEEP YA YAPS SHUT!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="trainman" ana="#short-hair #train-agent-hat #bib-overalls #shirt"/>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #suit #necktie"/>
+    <tei:note type="gender-markers" subtype="joe" ana="#fedora #necktie #suit #shirt"/>
+  </cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="3.8">
+  <cbml:panel n="3.8.1" ana="#subject-to-subject" characters="#tony #evelyn_ellis #trainman">
+    <tei:note resp="#SWH" type="panelDesc">Tony, silhouetted, threatens the trainmen (and Frankie?) with his gun as they load the mail sacks into the getaway car. Evelyn's profile face is half the size of the panel.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#long-hair #mink-coat #lipstick #prominent-eyelashes"/>
+    <cbml:balloon type="speech" ana="#command" who="#tony">STEP ON IT, CHUMS, YOU WON'T BE HOLDIN' BACK ON ME WOULD YA? </cbml:balloon>
+    <tei:note type="gender-markers" subtype="trainman" ana="#short-hair #train-agent-hat #bib-overalls #shirt"/>
+    <cbml:balloon type="speech" ana="#command" who="#evelyn_ellis">ANY OF THEM GET WISE, GIVE IT TO 'EM! </cbml:balloon>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #suit #necktie"/>
+    <cbml:balloon type="speech" ana="#interjection" who="#trainman">YIII!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="joe" ana="#fedora #necktie #suit #shirt"/>
+  </cbml:panel>
+  <cbml:panel n="3.8.2" ana="#action-to-action" characters="#tony #frankie #evelyn_ellis #trainman">
+    <tei:note resp="#SWH" type="panelDesc">Tony, probably, tells Evelyn that the last sack has been loaded, with a confirmation from Frankie.  The perspective is that of the captured trainmen.</tei:note>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#long-hair #mink-coat #lipstick"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#tony">THIS IS THE LAST OF 'EM.  YA READY TO BEAT IT?</cbml:balloon>
+    <tei:note type="gender-markers" subtype="trainman" ana="#short-hair #train-agent-hat #shirt"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#frankie">YEAH, THE QUICKER WE TAKE A POWDER, THE BETTER.  COME ON, LET'S GO!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #suit #necktie"/>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #train-agent-hat #bib-overalls #shirt"/>
+  </cbml:panel>
+  <cbml:panel n="3.8.3" ana="#scene-to-scene" characters="#tony #evelyn_ellis #trainman">
+    <tei:note resp="#SWH" type="panelDesc">As the getaway car speeds off, Tony, shooting from an open window, guns down a trainman.</tei:note>
+    <tei:note type="gender-markers" subtype="trainman" ana="#short-hair #train-agent-hat #bib-overalls #shirt"/>
+    <cbml:balloon type="speech" ana="#command" who="#evelyn_ellis">CUT THAT OUT, TONY! YA GETTING' TRIGGER HAPPY?</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#tony">NAW, I JUST DON'T WANT THEM GUYS TO GET A PEEK AT OUR LICENSE PLATES!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.8.4" ana="#scene-to-scene" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">Phantom Lady's disembodied head provides narrative.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #lipstick #prominent-eyelashes"/>
+    <cbml:balloon type="speech" ana="#narration" who="#phantom_lady">AGAIN, THEY MADE A PERFECT GETAWAY LEAVING NO CLUE, OR SO THEY THOUGHT.  BUT THIS TIME THE ENGINEER OF THE TRAIN HAD NOTICED SOMETHING!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.8.5" ana="#scene-to-scene" characters="#phil_police_detective #train_engineer #chief_of_police #policeman">
+    <tei:note resp="#SWH" type="panelDesc">Office scene: the chief of police sits at his desk, gesturing with a pencil, while the train engineer, leaning on his desk, points out the window at the cityscape.  Detective Phil stands in the door while a cop in uniform leans against a filing cabinet.</tei:note>
+    <tei:note type="gender-markers" subtype="train_engineer" ana="#short-hair #bib-overalls #shirt"/>
+    <tei:note type="uniforms" subtype="police"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#train_engineer">AS I WAS TELLING YOU THE ONLY THING I RECOGNIZED WAS A TAN '37 CHRYSER SEDAN.</cbml:balloon>
+    <tei:note type="gender-markers" subtype="chief_of_police" ana="#suit #male-pattern-baldness #short-hair"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#chief_of_police">THAT'S MIGHTY SLIM STUFF, BUT YOU CAN NEVER TELL..PHIL COME HERE!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="phil_police_detective" ana="#fedora #suit #necktie #short-hair"/>
+    <tei:note type="gender-markers" subtype="policeman" ana="#uniform-police"/>
+  </cbml:panel>
+  <cbml:panel n="3.8.6" ana="#action-to-action" characters="#phil_police_detective #train_engineer #chief_of_police">
+    <tei:note resp="#SWH" type="panelDesc">The scene now takes place from the engineer's former vantage point: the chief of police points his pencil at Phil, who is shifting his fedora with one hand in thought, while the engineer now stands in the background.</tei:note>
+    <tei:note type="gender-markers" subtype="train_engineer" ana="#short-hair #bib-overalls #shirt"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#chief_of_police">PHIL, I WANT YOU TO HAVE EVERY 1937 TAN CHRYSER SEDAN IN THE BAY AREA CHECKED AND FIND OUT WHO OWNS THEM. </cbml:balloon>
+    <tei:note type="gender-markers" subtype="chief_of_police" ana="#suit #necktie #male-pattern-baldness #short-hair"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#phil_police_detective">PHEW, CHIEF, THAT'S A ROUGH ORDER! I'LL GET THE BOYS ON IT RIGHT AWAY!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="phil_police_detective" ana="#fedora #suit #necktie #short-hair"/>
+  </cbml:panel>
+  <cbml:panel n="3.8.7" ana="#scene-to-scene" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">Phantom Lady's disembodied head provides narrative.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #lipstick #prominent-eyelashes"/>
+    <cbml:balloon type="speech" ana="#narration" who="#phantom_lady">THE BOYS HAD A REAL JOB, BUT THEY WENT TO AND LITTLE BY LITTLE THE SEARCH NARROWED DOWN TILL THE POLICE DISCOVERED A TAN CHRYSLER OWNED BY FRANK ELLIS. FROM THEN ON IT WAS A CINCH AND THEN ONE DAY...</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.8.8" ana="#scene-to-scene" characters="#phil_police_detective #policeman">
+    <tei:note resp="#SWH" type="panelDesc">Detective Phil raps on a closed apartment door, a bit of lathe showing where the plaster has fallen off, with two uniformed policemen in attendance.</tei:note>
+    <tei:note type="gender-markers" subtype="phil_police_detective" ana="#fedora #suit #short-hair"/>
+    <tei:note type="uniforms" subtype="police"/>
+    <cbml:balloon type="speech" ana="#command" who="#dialogue">YOU'RE IN THERE, OPEN UP OR WE'RE COMING IN AFTER YOU. BETTER GIVE UP WHILE YOU CAN!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="policeman" ana="#uniform-police"/>
+  </cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="3.9">
+  <cbml:panel n="3.9.1" ana="#action-to-action" characters="#phil_police_detective #policeman">
+    <tei:note resp="#SWH" type="panelDesc">Detective Phil holds his service revolver while the two uniformed cops bash in the door with brute force.</tei:note>
+    <tei:note type="gender-markers" subtype="phil_police_detective" ana="#fedora #suit  #short-hair"/>
+    <tei:note type="uniforms" subtype="police"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#dialogue">THERE SHE GOES! WATCH YOURSELVES, BOYS, THEY'RE PROBABLY SITTING IN THERE WAITING TO TAKE A POT SHOT AT YOU!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="policeman" ana="#uniform-police"/>
+  </cbml:panel>
+  <cbml:panel n="3.9.2" ana="#moment-to-moment" characters="#phil_police_detective #policeman">
+    <tei:note resp="#SWH" type="panelDesc">Bullets whiz through the broken door as the policemen duck.</tei:note>
+    <tei:note type="gender-markers" subtype="phil_police_detective" ana="#fedora #suit  #short-hair"/>
+    <tei:note type="uniforms" subtype="police"/>
+    <cbml:balloon type="speech" ana="#command" who="#policeman">PUT THOSE GUNS DOWN, YOU FILTHY RATS! YOU'RE SURROUNDED! YOU HAVEN'T GOT A CHANCE!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="policeman" ana="#uniform-police"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#policeman">LET ME GIVE THOSE SKUNKS THE GAS. THEY'LL COME OUT IN A HURRY ALL RIGHT!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.9.3" ana="#action-to-action" characters="#phil_police_detective #policeman">
+    <tei:note resp="#SWH" type="panelDesc">A policeman lobs a tear-gas canister through the splintered door.</tei:note>
+    <tei:note type="gender-markers" subtype="phil_police_detective" ana="#fedora #suit #shirt #short-hair"/>
+    <tei:note type="uniforms" subtype="police"/>
+    <tei:note type="weapon-tech" subtype="tear-gas_canister"/>
+    <tei:note type="gender-markers" subtype="policeman" ana="#uniform-police"/>
+  </cbml:panel>
+  <cbml:panel n="3.9.4" ana="#subject-to-subject" characters="#phil_police_detective #policeman #frankie #evelyn_ellis">
+    <tei:note resp="#SWH" type="panelDesc">Scene from within the apartment: clouds of gas swirl around Evelyn and Frankie as they stumble towards the broken door.  Only the hats of Phil and a policeman are visible outside the door.</tei:note>
+    <tei:note type="gender-markers" subtype="phil_police_detective" ana="#fedora"/>
+    <tei:note type="uniforms" subtype="police"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#evelyn_ellis">DON'T SHOOT! (COUGH) WE GIVE UP (GASP) DON'T SHOOT!</cbml:balloon>
+    <cbml:caption>MOMENTS LATER...</cbml:caption>
+    <tei:note type="gender-markers" subtype="policeman" ana="#uniform-police"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#frankie">DON'T (GASP) KILL US! (COUGH) DON'T SHOOT!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#long-hair #mink-coat  #lipstick #prominent-eyelashes"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#phil_police_detective">LOOK AT  THEM, LIKE RATS COMING OUT OF A SINKING SHIP!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #suit"/>
+  </cbml:panel>
+  <cbml:panel n="3.9.5" ana="#subject-to-subject" characters="#phil_police_detective #policeman #frankie #evelyn_ellis">
+    <tei:note resp="#SWH" type="panelDesc">Outside the apartment, Frankie is being hand-cuffed in the apartment hallway by a uniformed policeman as Phil tells "Phil" [sic] to have the house watched.</tei:note>
+    <tei:note type="gender-markers" subtype="phil_police_detective" ana="#fedora"/>
+    <tei:note type="uniforms" subtype="police"/>
+    <cbml:balloon type="speech" ana="#command" who="#phil_police_detective">ALL RIGHT PHIL, PUT A GUARD ON THE HOUSE AND BRING IN ANYONE ELSE THAT SHOWS UP. I'LL GET THESE BIRDS DOWN TOWN I WANT TO HEAR HOW THEY SING.</cbml:balloon>
+    <tei:note type="gender-markers" subtype="policeman" ana="#uniform-police"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#policeman">RIGHT, MAYBE WE CAN PICK UP A FEW MORE FOR THE CAGE!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#long-hair #mink-coat #lipstick #prominent-eyelashes"/>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #suit #shirt #necktie"/>
+  </cbml:panel>
+  <cbml:panel n="3.9.6" ana="#scene-to-scene" characters="#policeman #frankie #tony #joe #evelyn_ellis">
+    <tei:note resp="#SWH" type="panelDesc">Behind a tree, Tony and Joe watch warily as Evelyn and Frankie are being led away by the police in front of a brick walk-up.  The sun is shining, causing the group to cast shadows on the sidewalk.</tei:note>
+    <tei:note type="gender-markers" subtype="phil_police_detective" ana="#fedora #suit"/>
+    <tei:note type="uniforms" subtype="police"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#tony">JOE! LOOK! THE COPS GOT EVELYN AND FRANKIE! LET'S BLOW!</cbml:balloon>
+    <cbml:caption>MEANWHILE.... JOE AND TONY RETURN TO THE HOUSE.....</cbml:caption>
+    <tei:note type="gender-markers" subtype="policeman" ana="#uniform-police"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#joe">YA THINK THAT'S SMART TONY? THAT FRANKIE'S GONNA SQUEAL</cbml:balloon>
+    <tei:note type="gender-markers" subtype="evelyn_ellis" ana="#long-hair #mink-coat #dress #bare-legs #high-heeled-shoes"/>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #suit"/>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #suit #necktie #waistcoat"/>
+    <tei:note type="gender-markers" subtype="joe" ana="#fedora #necktie #suit #shirt"/>
+  </cbml:panel>
+  <cbml:panel n="3.9.7" ana="#scene-to-scene" characters="#tony #joe">
+    <tei:note resp="#SWH" type="panelDesc">Joe and Tony walk down a sidewalk with backs to the viewer.  A huge moon rises -- is this a deliberate time marker or simply carelessness on the part of the inker?</tei:note>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #suit"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#tony">YA RIGHT, JOE. EVVIE'LL KEEP HER TRAP SHUT. BUT FRANKIE, HE'S TOO YELLOW. LISTEN, I GOT AN IDEA. LET'S FOLLOW THEM DOWN TO THE STATION AND SEE WHAT DEVELOPS! NO COP'LL LOOK FOR US THERE.</cbml:balloon>
+    <tei:note type="gender-markers" subtype="joe" ana="#fedora #suit"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#joe">YEA ! I THINK MAYBE YA GOT SOMETHIN'. LET'S GO !</cbml:balloon>
+  </cbml:panel>
+</tei:div>
+<tei:div type="panelGrp" n="3.10">
+  <cbml:panel n="3.10.1" ana="#scene-to-scene" characters="#policeman #frankie #tony #joe">
+    <tei:note resp="#SWH" type="panelDesc">Joe and Tony see Frankie being booked in the police precinct.</tei:note>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #suit #shirt"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#tony">WE GOTTA STOP THAT GUY FROM STOOLING.  LISTEN, HERE'S WHAT WE DO. SEE, WE GO OVER TO THE DOOR AND.....</cbml:balloon>
+    <cbml:caption>AT THE POLICE STATION.....</cbml:caption>
+    <tei:note type="gender-markers" subtype="joe" ana="#fedora #suit #shirt"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#joe">LOOK, TONY THEY'RE BOOKING THE WEASEL NOW.</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.10.2" ana="#subject-to-subject" characters="#policeman #frankie #tony #joe">
+    <tei:note resp="#SWH" type="panelDesc">Silhouetted in the street doorway, Joe and Tony point guns toward the police as Frankie turns in their direction.</tei:note>
+    <tei:note type="gender-markers" subtype="joe" ana="#fedora #necktie #shirt"/>
+    <tei:note type="uniforms" subtype="police"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#command" who="#tony">RUN, FRANKIE, RUN. WE GOT YA COVERED. COME ON!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="policeman" ana="#uniform-police"/>
+    <cbml:balloon type="speech" ana="#command" who="#joe">GET GOING, FRANKIE WE'RE GONNA SPRING YA!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #suit #necktie"/>
+  </cbml:panel>
+  <cbml:panel n="3.10.3" ana="#action-to-action" characters="#policeman #frankie #tony #joe">
+    <tei:note resp="#SWH" type="panelDesc">Frankie runs furiously towards the door as Joe and Tony back away, guns levelled. The police gesture angrily.</tei:note>
+    <tei:note type="gender-markers" subtype="tony" ana="#suit #necktie"/>
+    <tei:note type="uniforms" subtype="police"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#command" who="#policeman">HEY STOP!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="joe" ana="#fedora #necktie #suit #shirt #pocket-handkerchief"/>
+    <cbml:balloon type="speech" ana="#command" who="#policeman">COME BACK HERE! WHERE DO YOU THINK YOU'RE GOING?</cbml:balloon>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #suit #necktie"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#tony">THOSE DUMB FLATFOOTS. IT'S WORKIN' LIKE A CHARM. WE'LL PLUG HIM WHEN HE HITS THE DOOR. THEY'LL BE SO SURPRISED WE'LL BE ABLE TO GET AWAY.</cbml:balloon>
+    <tei:note type="gender-markers" subtype="policeman" ana="#uniform-police"/>
+  </cbml:panel>
+  <cbml:panel n="3.10.4" ana="#action-to-action" characters="#frankie #joe #tony">
+    <tei:note resp="#SWH" type="panelDesc">Frankie raises his hands when he understands his predicament, dapper Joe with his leopard print hatband, necktie and pocket handkerchief glaring balefully.</tei:note>
+    <tei:note type="gender-markers" subtype="joe" ana="#fedora #necktie #suit #shirt #pocket-handkerchief"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#frankie">OKAY FELLAS, YA WAS JUST... EEEYAH!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="frankie" ana="#short-hair #suit #necktie"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#tony">WE WOULDN'T WANT YA TO TURN STOOLIE, PAL!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#joe">YA SHOULDN'T HAVE BEEN PICKED UP, FRANKIE. WE'RE NOT TAKIN' ANY CHANCES!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.10.5" ana="#action-to-action" characters="#policeman #frankie #joe #tony">
+    <tei:note resp="#SWH" type="panelDesc">Standing over the slain Frankie, a policeman cuts down the fleeing Joe and Tony.</tei:note>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #suit"/>
+    <tei:note type="uniforms" subtype="police"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#policeman">THERE THEY GO, THE MURDERIN' SCUM!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="joe" ana="#fedora  #suit #shirt"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#tony">JOE, JOE, THEY'RE AFTER US!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="frankie" ana="#suit #necktie #shirt"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#joe">YIII! THEY'LL MASSACRE US!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="policeman" ana="#uniform-police"/>
+  </cbml:panel>
+  <cbml:panel n="3.10.6" ana="#action-to-action" characters="#tony #joe #policeman">
+    <tei:note resp="#SWH" type="panelDesc">Tony's limp hand in the foreground, the fleeing Joe staggers as he is peppered with police bullets in the back.</tei:note>
+    <tei:note type="gender-markers" subtype="joe" ana="#fedora #necktie #suit #shirt"/>
+    <tei:note type="weapon-tech" subtype="pistol"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#policeman">THEY MUST HAVE BEEN NUTS COMIN' RIGHT TO THE  STATION TO GET THE GUY!</cbml:balloon>
+    <cbml:balloon type="speech" ana="#dialogue" who="#policeman">WE'LL [sic] THEY'LL NOT GET ANYBODY ELSE FROM NOW ON. THE SNEAKIN'S SKUNKS!</cbml:balloon>
+  </cbml:panel>
+  <cbml:panel n="3.10.7" ana="#subject-to-subject" characters="#policeman #tony #joe">
+    <tei:note resp="#SWH" type="panelDesc">Two uniformed policemen stand over the corpses of the Ellis Gang members, the background lurid red like blood.</tei:note>
+    <tei:note type="gender-markers" subtype="tony" ana="#short-hair #suit #necktie"/>
+    <tei:note type="uniforms" subtype="police"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#policeman">THEY'RE TWO MORE FROM THE ELLIS GANG, THE CAPTAIN WILL BE GLAD TO HEAR IT. SAVES A LOT OF TROUBLE ROUNDING THEM UP.</cbml:balloon>
+    <tei:note type="gender-markers" subtype="joe" ana="#necktie #suit #shirt"/>
+    <cbml:balloon type="speech" ana="#dialogue" who="#policeman">YEAH, AND THE STATE SAVES THE EXPENSE OF A TRIAL. THEY ALWAYS END UP THE SAME WAY,..DEAD!</cbml:balloon>
+    <tei:note type="gender-markers" subtype="policeman" ana="#uniform-police"/>
+  </cbml:panel>
+  <cbml:panel n="3.10.8" ana="#scene-to-scene" characters="#phantom_lady">
+    <tei:note resp="#SWH" type="panelDesc">Phantom Lady's disembodied head, grinning remorselessly, straddles the gutter between the final two panels.</tei:note>
+    <tei:note type="gender-markers" subtype="phantom_lady" ana="#long-hair #lipstick #prominent-eyelashes"/>
+    <cbml:balloon type="speech" ana="#narration" who="#phantom_lady">WELL THAT ENDED EVELYN'S WILD SPREE OF MURDER AND ROBBERY. THE OTHER MEMBER OF THE GANG WAS SOON CAUGHT AND GIVEN LIFE.  EVELYN WAS SENTENCED TO FIFTY YEARS AS HER SHARE. CRIME JUST DOES NOT PAY! I'VE GOT TO GET BACK NOW AND MEET DAD, WE'RE INVITED TO MEET A NEW AMBASSADOR WHO'S TALL DARK AND TERRIFIC. SEE YOU NEXT MONTH WITH ANOTHER EXCITING TRUE CRIME STORY, RIGHT FROM THE POLICE FILES. BYE NOW!</cbml:balloon>
+  </cbml:panel>
+</tei:div>
+</tei:body>
+</tei:text>
+</tei:TEI>
