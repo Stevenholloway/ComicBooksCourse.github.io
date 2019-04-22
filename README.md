@@ -33,10 +33,10 @@
 <br>
 ## [Phantom Lady #17 in extended TEI-CBML markup](https://stevenholloway.github.io/ComicBooksCourse.github.io/PL17_TEI.xml)
 ## XQuery scripts for TEI-CBML analysis
-  # [Caption concordance generator](https://stevenholloway.github.io/ComicBooksCourse.github.io/captionConcord.xql)
-  # [Description texts](https://stevenholloway.github.io/ComicBooksCourse.github.io/desc.xql)
-  # [Gender markers by character](https://stevenholloway.github.io/ComicBooksCourse.github.io/gender-markers-character.xql)
-  # [Gender markers statistics](https://stevenholloway.github.io/ComicBooksCourse.github.io/gender-markers-stats.xql)
-  # [Speech counts by type and character](https://stevenholloway.github.io/ComicBooksCourse.github.io/speech-count.xql)
-  # [Word frequency by character](https://stevenholloway.github.io/ComicBooksCourse.github.io/word-freq-character.xqy)
+  | [Caption concordance generator](https://stevenholloway.github.io/ComicBooksCourse.github.io/captionConcord.xql)
+  | [Description texts](https://stevenholloway.github.io/ComicBooksCourse.github.io/desc.xql)
+  | [Gender markers by character](https://stevenholloway.github.io/ComicBooksCourse.github.io/gender-markers-character.xql)
+  | [Gender markers statistics](https://stevenholloway.github.io/ComicBooksCourse.github.io/gender-markers-stats.xql)
+  | [Speech counts by type and character](https://stevenholloway.github.io/ComicBooksCourse.github.io/speech-count.xql)
+  | [Word frequency by character](https://stevenholloway.github.io/ComicBooksCourse.github.io/word-freq-character.xqy)
 
