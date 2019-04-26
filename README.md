@@ -25,18 +25,18 @@
 <br>
 <br>
 ## Speech Extracts for Machine Analysis, generated specifically for the [IBM Watson Personality Insights demo](https://personality-insights-demo.ng.bluemix.net/) 
-### [Batman in Batman The Dark Knight Returns](https://stevenholloway.github.io/ComicBooksCourse.github.io/Batman_DarkKnightReturns.txt)
-### [Bechdel, Alison in Fun Home](https://stevenholloway.github.io/ComicBooksCourse.github.io/Bechdel_Alison.txt)
-### [Bechdel, Bruce in Fun Home](https://stevenholloway.github.io/ComicBooksCourse.github.io/Bechdel_Bruce.txt)
-### [Criminals in Phantom Lady #17 (1948)](https://stevenholloway.github.io/ComicBooksCourse.github.io/crooksAll_SPEECHES_PL17.txt)
-### [Dr. Manhattan in Watchmen](https://stevenholloway.github.io/ComicBooksCourse.github.io/Dr_Manhattan.txt)
-### [Mutants in Batman The Dark Knight Returns](https://stevenholloway.github.io/ComicBooksCourse.github.io/Mutants_BTDKR.txt)
-### [Rorschach in Watchmen](https://stevenholloway.github.io/ComicBooksCourse.github.io/Rorschach_Speeches.txt)
-### [V in V for Vendetta](https://stevenholloway.github.io/ComicBooksCourse.github.io/V_VforVendetta.txt)
+### [Batman in _Batman The Dark Knight Returns_](https://stevenholloway.github.io/ComicBooksCourse.github.io/Batman_DarkKnightReturns.txt)
+### [Bechdel, Alison in _Fun Home_](https://stevenholloway.github.io/ComicBooksCourse.github.io/Bechdel_Alison.txt)
+### [Bechdel, Bruce in _Fun Home_](https://stevenholloway.github.io/ComicBooksCourse.github.io/Bechdel_Bruce.txt)
+### [Criminals in _Phantom Lady #17_ (1948)](https://stevenholloway.github.io/ComicBooksCourse.github.io/crooksAll_SPEECHES_PL17.txt)
+### [Dr. Manhattan in _Watchmen_](https://stevenholloway.github.io/ComicBooksCourse.github.io/Dr_Manhattan.txt)
+### [Mutants in _Batman The Dark Knight Returns_](https://stevenholloway.github.io/ComicBooksCourse.github.io/Mutants_BTDKR.txt)
+### [Rorschach in _Watchmen_](https://stevenholloway.github.io/ComicBooksCourse.github.io/Rorschach_Speeches.txt)
+### [V in _V for Vendetta_](https://stevenholloway.github.io/ComicBooksCourse.github.io/V_VforVendetta.txt)
 
 <br>
 <br>
-## [Phantom Lady #17 in extended TEI-CBML markup](https://stevenholloway.github.io/ComicBooksCourse.github.io/PL17_TEI.xml)
+## [_Phantom Lady #17_ in extended TEI-CBML markup](https://stevenholloway.github.io/ComicBooksCourse.github.io/PL17_TEI.xml)
 ## XQuery scripts for TEI-CBML analysis
   | [Caption concordance generator](https://stevenholloway.github.io/ComicBooksCourse.github.io/captionConcord.xql)
   | [Description texts](https://stevenholloway.github.io/ComicBooksCourse.github.io/desc.xql)
@@ -44,4 +44,11 @@
   | [Gender markers statistics](https://stevenholloway.github.io/ComicBooksCourse.github.io/gender-markers-stats.xql)
   | [Speech counts by type and character](https://stevenholloway.github.io/ComicBooksCourse.github.io/speech-count.xql)
   | [Word frequency by character](https://stevenholloway.github.io/ComicBooksCourse.github.io/word-freq-character.xqy)
+<br>
+<br>
+## Online comic books and graphic novels used in the course
+### Digital Comics Museum: [_Phantom Lady #17_(1948)](https://digitalcomicmuseum.com/preview/index.php?did=12220&page=1)
+### Internet Archive: [Alan Moore, _Watchmen_](https://archive.org/details/Watchmen1987)
+### Internet Archive: [Alan Moore, _V for Vendetta_](https://archive.org/details/VForVendetta_201507)
+### Internet Archive: [Frank Miller, _Batman: The Dark Knight Returns_](https://archive.org/details/BatmanTheDarkKnightReturns03of041986)
 
